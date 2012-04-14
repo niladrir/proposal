@@ -113,56 +113,56 @@ In recent times there have been major advances in statistical graphics. Modern c
 
 In this paper we used the idea of projection pursuit by Friedman and Tukey [1974]. Projection pursuit is a statistical tool to find the most interesting projections from high dimensional to low dimensional space that reveals the most details about the structure of the data. In this paper we mainly use the one and two dimensional projections obtained by projection pursuit on higher dimensions.
 
-In this paper we use the \texttt{tourr} package in %\texttt{R} \cite{r}  by \citeasnoun{WC08}. 
+In this paper we use the \texttt{tourr} package in \texttt{R} \cite{r} . %by \citeasnoun{WC08}. 
 
 The \texttt{tourr} package produces tours of multivariate data. The package also includes functions for creating different types of tours like grand, guided and little tours, which project multivariate data with $p$ dimensions to 1, 2, 3 or $d$ dimensions where $d \le p$. In this paper we mainly use the guided tour function which instead of picking a new projection completely at random, it picks projections that are closer to the current projection, so that we eventually converge to a single maximally interesting projection. The \texttt{tourr} package comes with 4 indices but we use the PDA (Penalized Discriminant Analysis)  index described in Lee et. al.      
 
-In this paper we check the projection pursuit optimization on pure noise with no real separation by using statistical graphics in Section 3. We also check the PP optimization on dimensions with some real separation and present results. In Section 4 we are also concerned about how the distance between the means increase with $p$ for a fixed n. We also present a confidence interval for the number of dimensions at which the clusters starts to separate out for both one dimensional and two dimensional projections.
+In this paper we check the projection pursuit optimization on pure noise with no real separation by using statistical graphics in Section \ref{sec:largep}. We also check the PP optimization on dimensions with some real separation and present results. In Section  \ref{sec:distance} we are also concerned about how the distance between the means increase with $p$ for a fixed n. We also present a confidence interval for the number of dimensions at which the clusters starts to separate out for both one dimensional and two dimensional projections.
 
-\section{Visual Statistical Inference} \label{sec:visual_test} 
-
-This section outlines the concepts of visual inference in comparison to the procedures of classical statistical inference. 
-
-Let $\theta$ be a population parameter of interest, with $\theta \in \Theta$, the parameter space. 
-Any null hypothesis $H_0$ then partitions the parameter space into $\Theta_0$ and $\Theta_0^c$, with $H_0: \theta \in \Theta_0$ versus $H_1: \theta \in \Theta_0^c$. 
-% In hypothesis testing terminology, the parameter space $\Theta$ of a population parameter $\theta$, can be partitioned into $\Theta_0$ and $\Theta_0^c$. We test $H_0: \theta \in \Theta_0$ versus $H_1: \theta \in \Theta_0^c$.
-
-%\subsection{Visual Statistic} 
-
-Unlike classical hypothesis testing, the statistic in visual inference is not a single value, but a plot that is appropriately chosen to describe the parameter of interest, $\theta$. When the alternative hypothesis is true, it is expected that the plot of the observed data, the test statistic, will have visible feature(s) consistent with $\theta \in \Theta_0^c$, and that visual artifacts will not distinguish the test statistic as different when $H_1$ is not true.
-
-\begin{dfn}\label{dfn:lplot}
-A lineup plot is a layout of $m$ visual statistics, consisting of 
-\begin{itemize}\itemsep-3pt
-\item $m-1$ plots simulated from the model specified by $H_0$  (null plots) and 
-\item the test statistic produced by plotting the observed data, possibly arising from $H_1$.
-\end{itemize}
-\end{dfn}
-
-If $H_1$ is true, the test statistic is expected to be the plot that is most different from the other plots in the lineup plot. A careful visual inspection should reveal the differences in the feature shown by the test statistic under null and alternative hypothesis. {\em If the test statistic cannot be identified} in the lineup, the conclusion is to {\em not reject the null hypothesis.} The $(m-1)$ null plots can be considered to be samples drawn from the sampling distribution of the test statistic assuming that the null hypothesis is true.
-
-
-Since the lineup plot consists of $m$ plots, the probability of choosing any one of them is $1/m$. Thus we have type-I error probability of $1/m$.
-
-The lineup plot can be evaluated by one or more individuals. When a single individual identifies the observed graph in the lineup plot we report a $p$-value smaller than $1/m$, otherwise the $p$-value is larger than $1/m$. 
-
-If $N$ individuals evaluate a lineup plot independently, we count the number of successful evaluations as $U \sim \text{Binom} (N,\frac{1}{m})$ and report a  $p$-value of at most $Pr(U \ge u)= \sum_{k \ge u}^N {{N \choose k} (\frac{1}{m})^k(1-\frac 1m)^{(N-k)}}$ where $u$ is the observed number of successful evaluations. %Notice that when $N=1$, this $p$-value is $\frac1m$. 
-
-
-For two different visual test statistics of the same observed data, the one  is better, in which a specific pattern is more easily distinguishable visually.
+%\section{Visual Statistical Inference} \label{sec:visual_test} 
+%
+%This section outlines the concepts of visual inference in comparison to the procedures of classical statistical inference. 
+%
+%Let $\theta$ be a population parameter of interest, with $\theta \in \Theta$, the parameter space. 
+%Any null hypothesis $H_0$ then partitions the parameter space into $\Theta_0$ and $\Theta_0^c$, with $H_0: \theta \in \Theta_0$ versus $H_1: \theta \in \Theta_0^c$. 
+%% In hypothesis testing terminology, the parameter space $\Theta$ of a population parameter $\theta$, can be partitioned into $\Theta_0$ and $\Theta_0^c$. We test $H_0: \theta \in \Theta_0$ versus $H_1: \theta \in \Theta_0^c$.
+%
+%%\subsection{Visual Statistic} 
+%
+%Unlike classical hypothesis testing, the statistic in visual inference is not a single value, but a plot that is appropriately chosen to describe the parameter of interest, $\theta$. When the alternative hypothesis is true, it is expected that the plot of the observed data, the test statistic, will have visible feature(s) consistent with $\theta \in \Theta_0^c$, and that visual artifacts will not distinguish the test statistic as different when $H_1$ is not true.
+%
+%\begin{dfn}\label{dfn:lplot}
+%A lineup plot is a layout of $m$ visual statistics, consisting of 
+%\begin{itemize}\itemsep-3pt
+%\item $m-1$ plots simulated from the model specified by $H_0$  (null plots) and 
+%\item the test statistic produced by plotting the observed data, possibly arising from $H_1$.
+%\end{itemize}
+%\end{dfn}
+%
+%If $H_1$ is true, the test statistic is expected to be the plot that is most different from the other plots in the lineup plot. A careful visual inspection should reveal the differences in the feature shown by the test statistic under null and alternative hypothesis. {\em If the test statistic cannot be identified} in the lineup, the conclusion is to {\em not reject the null hypothesis.} The $(m-1)$ null plots can be considered to be samples drawn from the sampling distribution of the test statistic assuming that the null hypothesis is true.
+%
+%
+%Since the lineup plot consists of $m$ plots, the probability of choosing any one of them is $1/m$. Thus we have type-I error probability of $1/m$.
+%
+%The lineup plot can be evaluated by one or more individuals. When a single individual identifies the observed graph in the lineup plot we report a $p$-value smaller than $1/m$, otherwise the $p$-value is larger than $1/m$. 
+%
+%If $N$ individuals evaluate a lineup plot independently, we count the number of successful evaluations as $U \sim \text{Binom} (N,\frac{1}{m})$ and report a  $p$-value of at most $Pr(U \ge u)= \sum_{k \ge u}^N {{N \choose k} (\frac{1}{m})^k(1-\frac 1m)^{(N-k)}}$ where $u$ is the observed number of successful evaluations. %Notice that when $N=1$, this $p$-value is $\frac1m$. 
+%
+%
+%For two different visual test statistics of the same observed data, the one  is better, in which a specific pattern is more easily distinguishable visually.
 
 \section{Checking PP optimization} \label{sec:largep}
 
 \subsection{Motivation}
 
-The optimization procedure in the  \texttt{tourr} package is new, different from the algorithms that have existed before in GGobi %\cite{STLBC03} and XGobi \cite{SCB91}. 
-We have been using PP with the PDA index, on a large $p$, small $n$ data set from a microarray study, and for comparison have been looking at pure noise data. As strange as it might seem it seemed like we could often pick the projection of the  "original" data from a lineup of projections of permuted class data. This should not be possible. 
+The optimization procedure in the  \texttt{tourr} package is new, different from the algorithms that have existed before in GGobi \cite{STLBC03} and XGobi \cite{SCB91}. 
+We have been using PP with the PDA index, on a large $p$, small $n$ data set from a microarray study, and for comparison have been looking at pure noise data. As strange as it might seem it seemed like we could often pick the projection of the  ``original" data from a lineup of projections of permuted class data. This should not be possible. 
 
 \subsection{Procedure}
 
 The optimization is checked for 1D and 2D projections. For 1D projections data is simulated from a standard normal distribution with $n=30, p=100$. The first 15 observations are labeled class 1 and the second 15 observations are labeled class 2. There is no true class, it is pure noise data -- any separation seen between classes in the projection are purely due to the high dimension. We compute projection pursuit using the PDA index and plot the one dimensional projections in a lineup plot with $m=20$ where alternatives plots are created by randomly permuting the class labels. We expect that the original data should not be detectable -- it's just noise, any labeling of the observations to class is random. 
 
-For 2D projections data is simulated from a standard normal distribution with $n=30, p=100$. The first 10 observations are labeled class 1, the second 10 observations are labeled class 2 and the last third are labeled class3. There is no true class, it is pure noise data. To account for the occasional convergence problem with the optimization 30 null plots are generated. The 19 null plots which have the smallest Wilks $\lambda$ \cite{JW02} values are used for the lineup. 
+For 2D projections data is simulated from a standard normal distribution with $n=30, p=100$. The first 10 observations are labeled class 1, the second 10 observations are labeled class 2 and the last third are labeled class3. There is no true class, it is pure noise data. To account for the occasional convergence problem with the optimization 30 null plots are generated. The 19 null plots which have the smallest Wilks $\lambda$ (\cite{JW02}) values are used for the lineup. 
 
 For comparison, for each of these examples we also simulated data that had real classes, too. We also simulated data with 99 dimensions of pure noise and one dimension of real separation, in all making it 100 dimensions. In the same way, each dimension has 30 observations and they were divided into 2 classes. The separation was designed in a way such that if we plot the one dimension with real separation, the points lie approximately 6 units apart. Once again the first 15 observations are labeled class 1 and the last 15 observations are labeled class 2. In this case there is one dimension of real separation. We once again compute the projection pursuit using the PDA index and plot the one dimensional projections.
 
@@ -479,7 +479,7 @@ Binned distance is highly susceptible to small differences in values and depends
 \begin{eqnarray*}
 w_P^2(X) &:=&||W(X,Y) - W(X,[P]Y))||^2 \\ &=& \sum_{i=1}^n (W_{X_{i},Y_i} - W_{X_i,P(Y)_i})^2 , 
 \end{eqnarray*}
-where $W_{X_i,Y_i}$ denotes the joint (empirical) density of $X$, $Y$ at location $(X_i, Y_i)$. See Figure \ref{fig:test_category} for a comparison of weighted and unweighted binned distance at the example of 20  points.
+where $W_{X_i,Y_i}$ denotes the joint (empirical) density of $X$, $Y$ at location $(X_i, Y_i)$. See Figure \ref{wbdist} for a comparison of weighted and unweighted binned distance at the example of 20  points.
 %The weighted bin distance is an improvement to the bin distance where a weight is provided to the counts of the neighboring bins. The weight is done by doing a kernel density estimation of the different bins.
 
 %\green{I wrote something down here but I am not sure if this works.}
@@ -490,7 +490,7 @@ where $W_{X_i,Y_i}$ denotes the joint (empirical) density of $X$, $Y$ at locatio
        \includegraphics[width=3.3in]{wbdist.pdf}
 	\vspace{-.2in}
        \caption{Scatterplot of 20 points in $X$ and $Y$ with a weak positive association. The colored tiles show binned frequencies, the contour lines show two-dimensional density.}
-       \label{fig:test_category}
+       \label{wbdist}
 \end{figure}
 \end{itemize}
 The remaining distance measures are different from the ones above, in that they are used to directly draw inference on a linear association between variables $X$ and $Y$, whereas the other ones were not specifically tailored to this purpose.
@@ -989,10 +989,10 @@ This work was funded by National Science Foundation grant DMS 1007697. All plots
 %%\subsubsection{Tool for Statistics Education} From our turk experiment we observed that significant number of evaluations are correct even though turker's education level is not even graduate. Even if the turkers are well educated they have no idea what the experiment is about. But still their evaluations indicates strong power of statistical inference. This suggests that Statistical Inference could be introduced to the students earlier than what we usually do now since it does not require a lot of technical knowledge. Visual Inference technique could be their first step in learning statistical inference. This would make a strong mindset about the core of statistical inference with less effort but with lot of fun. That would be another direction of research.  
 %
 %
-%%\bibliographystyle{plain}
-%%\bibliographystyle{plainnat}
+%\bibliographystyle{plain}
+\bibliographystyle{plainnat}
 %%\bibliographystyle{ieeetr}
-%\bibliography{references}
+\bibliography{references}
 %
 %%\end{multicols}
 
