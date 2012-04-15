@@ -158,6 +158,19 @@ In this paper we check the projection pursuit optimization on pure noise with no
 The optimization procedure in the  \texttt{tourr} package is new, different from the algorithms that have existed before in GGobi \cite{STLBC03} and XGobi \cite{SCB91}. 
 We have been using PP with the PDA index, on a large $p$, small $n$ data set from a microarray study, and for comparison have been looking at pure noise data. As strange as it might seem it seemed like we could often pick the projection of the  ``original" data from a lineup of projections of permuted class data. This should not be possible. 
 
+In some situations where the number of dimensions ($p$) is approximately equal or close to the number of observations ($n$), we may see separation among the groups when a linear discriminant analysis (LDA) or a penalized discriminant analysis (PDA) is performed. A natural question is whether there is actually a real separation among the groups or we observed the separation due to the fact that $p \approx n$ or $p > n$. Let us consider the following example of LDA method used to classify the groups of paper wasps. There are 50 different paper wasps divided into 4 groups: Foundress (F), Gyne (G), Queen (Q) and Worker (W). There are 14 paper wasps of type Foundress and 12 each of the other 3 types. The authors, knowing that LDA requires that the number of observations ($n$) should be larger than ($p$), randomly selected a subset of 40 significantly different oligos from a total of 447 oligos. Figure \ref{oligo} shows the scatterplot of LD1 versus LD2.
+
+\begin{figure*}[hbtp]
+%\begin{figurehere}
+   \centering
+       \scalebox{.50}{\includegraphics{toth_lda.pdf}}
+       \caption{LD1 versus LD2 from an LDA on a randomly selected subset of 40 significantly different oligos. F, Foundress; G, gyne; Q, queen and W, worker.}
+     \label{oligo}
+%\end{figurehere}
+\end{figure*}  
+
+Figure \ref{oligo} clearly shows that groups Foundress(F) and Gyne(G) are two separated clusters while the groups Worker(W) and Queen(Q) are not separated and forms a separate cluster. It would be interesting to find whether the separation is real.
+
 \subsection{Procedure}
 
 The optimization is checked for 1D and 2D projections. For 1D projections data is simulated from a standard normal distribution with $n=30, p=100$. The first 15 observations are labeled class 1 and the second 15 observations are labeled class 2. There is no true class, it is pure noise data -- any separation seen between classes in the projection are purely due to the high dimension. We compute projection pursuit using the PDA index and plot the one dimensional projections in a lineup plot with $m=20$ where alternatives plots are created by randomly permuting the class labels. We expect that the original data should not be detectable -- it's just noise, any labeling of the observations to class is random. 
@@ -287,6 +300,26 @@ Again consider 3 dimensions of pure noise, each dimension having 30 observations
 %\end{figure*}
 
 %\begin{multicols}{2}
+
+We obtained the wasp data used to generate Figure \ref{oligo} from the authors. To check whether the separation is real, we generate a lineup by using the wasp data as the actual data. We generate the lineup by randomly permuting the group variable and breaking any relationship between the variables  and the group. Figure \ref{toth_lineup} shows the lineup plots of LD1 versus LD2 of a LDA of the 40 randomly selected oligos.
+
+\begin{figure*}[hbtp]
+%\begin{figurehere}
+   \centering
+       \scalebox{1}{\includegraphics{toth_lineup_lda.pdf}}
+       \caption{Lineup Plot showing LD1 versus LD2 from an LDA on a randomly selected subset of 40 significantly different oligos. F, Foundress; G, gyne; Q, queen and W, worker. The actual data plot is placed randomly among 19 null plots. Can you identify the actual data?  }
+       \label{toth_lineup}
+\end{figure*} 
+
+In Figure \ref{toth_lineup} we can see that the clusters are separated even after breaking any dependency between the groups and the variables. Since PDA is a better index than LDA in a large $p$ situation, we used PDA to generate another lineup which is presented in Figure \ref{toth_pda}. In Figure \ref{toth_pda}, the clusters are not even separated and we cannot identify the true plot. We also generated 40 dimensions of random noise with 50 observations in each dimension. A group variable is also added as the one present in the wasp data. We performed a LDA on this random noise data and we can can still see clusters.  This shows that the separation seen in Figure \ref{oligo} may not be real but appear only due to the fact that the number of variables are large.
+
+\begin{figure*}[hbtp]
+%\begin{figurehere}
+   \centering
+       \scalebox{1}{\includegraphics{toth_lineup_pda.pdf}}
+       \caption{Lineup Plot showing PD1 versus PD2 from an PDA on a randomly selected subset of 40 significantly different oligos. F, Foundress; G, gyne; Q, queen and W, worker. The actual data plot is placed randomly among 19 null plots. Can you identify the actual data?  }
+       \label{toth_pda}
+\end{figure*}   
 
 \subsection{Fun Activity}
 
