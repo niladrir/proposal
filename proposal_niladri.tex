@@ -4,7 +4,12 @@
 \usepackage{natbib}
 \usepackage{multicol}
 
-\usepackage{amsmath, amssymb, fullpage, amsthm, array, algorithm2e,graphicx}
+\usepackage{amsmath, amssymb, fullpage, amsthm, array, algorithm2e,graphicx,mathtools, xparse}
+\NewDocumentCommand{\ceil}{s O{} m}{%
+  \IfBooleanTF{#1} % starred
+    {\left\lceil#3\right\rceil} % \ceil*[..]{..}
+    {#2\lceil#3#2\rceil} % \ceil[..]{..}
+}
 \usepackage{color}
 \usepackage{subfigure}
 %\usepackage[dvips]{graphics}
@@ -18,9 +23,7 @@
 \textheight 9.15in  % when making pdf
 
 
-
 \begin{document}
-
 
 
 \thispagestyle{empty}
@@ -190,7 +193,7 @@ Figure \ref{fig:test_category} gives the lineup plot for the two dimensional pro
 \begin{figure*}[hbtp]
 %\begin{figurehere}
    \centering
-       \scalebox{1.00}{\includegraphics{plot_100_e.pdf}}
+       \scalebox{1.00}{\includegraphics{plot_1d_100_4.pdf}}
        \caption{Lineup plot ($m=20$) with 100 dimensions of random noise for testing $H_0$: There is no difference among the plots. When the alternative hypothesis is true the observed plot should have the largest separated colors. Can you identify the observed plot?}
      \label{fig:test_category_1d}
 %\end{figurehere}
@@ -200,7 +203,7 @@ Figure \ref{fig:test_category} gives the lineup plot for the two dimensional pro
 \begin{figure*}[hbtp]
 %\begin{figurehere}
    \centering
-       \scalebox{1.00}{\includegraphics{plot_99_d.pdf}}
+       \scalebox{1.00}{\includegraphics{plot_1d_99_19.pdf}}
        \caption{Lineup plot ($m=20$) with 99 dimensions of pure noise and 1 dimension of real separation for testing $H_0$: There is no difference among the plots. When the alternative hypothesis is true the observed plot should have the largest separated colors. Can you identify the observed plot?}
        \label{not_noise_1d}
 \end{figure*}
@@ -208,7 +211,7 @@ Figure \ref{fig:test_category} gives the lineup plot for the two dimensional pro
 \begin{figure*}[hbtp]
 %\begin{figurehere}
    \centering
-       \scalebox{1.00}{\includegraphics{plot_2d_100_b.pdf}}
+       \scalebox{1.00}{\includegraphics{plot_2d_100_15.pdf}}
        \caption{Lineup plot ($m=20$) with 100 dimensions of random noise for testing $H_0$: There is no difference among the plots. When the alternative hypothesis is true the observed plot should have the largest separated colors. Can you identify the observed plot?}
        \label{fig:test_category}
 %\end{figurehere}
@@ -218,7 +221,7 @@ Figure \ref{fig:test_category} gives the lineup plot for the two dimensional pro
 \begin{figure*}[hbtp]
 %\begin{figurehere}
    \centering
-       \scalebox{1.00}{\includegraphics{plot_2d_98_d.pdf}}
+       \scalebox{1.00}{\includegraphics{plot_2d_98_5.pdf}}
        \caption{Lineup plot ($m=20$) with 98 dimensions of pure noise and 2 dimensions of real separation for testing $H_0$: There is no difference among the plots. When the alternative hypothesis is true the observed plot should have the largest separated colors. Can you identify the observed plot?}
        \label{not_noise}
 \end{figure*}
@@ -268,14 +271,14 @@ Consider two dimensions of pure noise, each dimension having 30 observations div
 \begin{figure*}[hbtp]
 %\begin{figurehere}
    \centering
-	\scalebox{0.25}{\includegraphics{plot_2a_1d.pdf}}
-	\scalebox{0.25}{\includegraphics{plot_20a_1d.pdf}}
-	\scalebox{0.25}{\includegraphics{plot_50a_1d.pdf}}
-	\scalebox{0.25}{\includegraphics{plot_100a_1d.pdf}}
-\scalebox{0.25}{\includegraphics{plot-true3.pdf}}
-	\scalebox{0.25}{\includegraphics{plot-true20.pdf}}
-	\scalebox{0.25}{\includegraphics{plot-true50.pdf}}
-	\scalebox{0.25}{\includegraphics{plot-true100.pdf}}
+	\scalebox{0.25}{\includegraphics{plot_1d_2.pdf}}
+	\scalebox{0.25}{\includegraphics{plot_1d_20.pdf}}
+	\scalebox{0.25}{\includegraphics{plot_1d_50.pdf}}
+	\scalebox{0.25}{\includegraphics{plot_1d_100.pdf}}
+ \scalebox{0.25}{\includegraphics{plot_2d_3.pdf}}
+	\scalebox{0.25}{\includegraphics{plot_2d_20.pdf}}
+	\scalebox{0.25}{\includegraphics{plot_2d_50.pdf}}
+	\scalebox{0.25}{\includegraphics{plot_2d_100.pdf}}
        \caption{Plots showing one and two dimensional projections for 4 different number of dimensions $p=3$, $p=20$, $p=50$ and $p=100$. Note that the classes look more and more separated as we increase the number of dimensions when actually there is no real separation.  }
        \label{dist_1d}
 \end{figure*}
@@ -330,7 +333,7 @@ The previous section clearly suggests that the clusters becomes more and more vi
 \begin{figure*}[hbtp]
 %\begin{figurehere}
    \centering
-       \scalebox{0.95}{\includegraphics{npratio22_41_new.pdf}}
+       \scalebox{0.95}{\includegraphics{plot_1d_22_41_new.pdf}}
        \caption{Plots showing the one dimensional projections for a fixed sample size $n=30$ and the number of dimensions ranging from 23 to 42. The number written above the plot is the number of dimension. Can you see where the colors starts separating?  }
        \label{conf_int}
 \end{figure*}
@@ -338,7 +341,7 @@ The previous section clearly suggests that the clusters becomes more and more vi
 \begin{figure*}[hbtp]
 %\begin{figurehere}
    \centering
-       \scalebox{0.95}{\includegraphics{npratio23_42_new.pdf}}
+       \scalebox{0.95}{\includegraphics{plot_2d_23_42_new.pdf}}
        \caption{Plots showing the two dimensional projections for a fixed sample size $n=30$ and the number of dimensions ranging from 23 to 42. The number written above the plot is the number of dimension. Can you see where the colors starts separating?  }
        \label{conf_int1}
 \end{figure*}
@@ -426,7 +429,7 @@ To avoid basing conclusions on artifacts introduced by a `bad' sample, we need t
 %The difference between a regular permutation test and a graphical test under the line-up protocol, is that we are comparing the observed value of the test statistics (i.e. the plot of the observed data) to a finite sample of the sample distribution.
 
 
-\section{Distance measures}
+\section{Distance measures}\label{defn.distance}
 
 %\blue{The difference between a regular permutation test and a graphical test under the line-up protocol, is that we are comparing the observed value of the test statistics (i.e. the plot of the original data) to a finite sample of the sample distribution. As Tukey suggested, `there is such a thing as a bad random sample' \citet{fernholz03}:
 %\begin{quotation}
@@ -442,7 +445,7 @@ To avoid basing conclusions on artifacts introduced by a `bad' sample, we need t
 %
 %\red{Another thing that we should discuss on Friday is whether it might be better to call the measures we use norms rather than distances - a distance usually assumes the comparison of two objects, and we implicitly compare against null or identity, which is what a norm does..}
 
-There are different types of distance measures suitable in measuring the distance between the permuted variable and the original variable. In this paper we used six different types of distance measures so that they can identify the different characteristics present in a plot. \\
+There are different types of distance measures suitable in measuring the distance between the permuted variable and the original variable. In this paper we used eleven different types of distance measures so that they can identify the different characteristics present in a plot. \\
 
 For all of the distance measures below, let $P$ be a permutation mapping  the set $\{1, 2, ..., n\}$ onto itself. Let further $[P]$ denote the $n \times n$ matrix associated to permutation $P$.
 
@@ -450,16 +453,21 @@ For all of the distance measures below, let $P$ be a permutation mapping  the se
 %}
 \begin{itemize}
 
-\item Hamming Distance: The hamming distance $H$ of $P$ is defined as 
+\item Hamming Distance: The hamming distance $h$ of $P$ is defined as 
 \[
-H(P) := \sum_{i=1}^n I_{P(i) \neq i},  \text{ where } I_{x} = \left \{ 
+h(P) := \sum_{i=1}^n I_{P(i) \neq i},  \text{ where } I_{x} = \left \{ 
 \begin{array}{ll}
 1 & \text{if } x \text{ is true},\\
 0 & \text{otherwise},
 \end{array} \right.
 \]
-i.e. $H(P)$ is a count of the number of fix elements of the function.
+i.e. $h(P)$ is a count of the number of fix elements of the function.
 
+\item Euclidean Distance of permutations: The Euclidean distance of permutations $P$ is 
+\[
+d^2_P(X) = \sum_{i=1}^n ( i - P(i))^2.
+\]
+where $i = \{1, 2, ..., n\}$
 
 %\blue{
 %The hamming distance $H$ of $P$ is defined as 
@@ -485,11 +493,11 @@ This distance matrix measures the distance between the permutation matrix and th
 %\]
 %}
 
-\item Euclidean Distance: 
+\item Euclidean Distance of actual values: 
 Let $X$ be a continuous variable. The Euclidean Distance under permutation is then defined as 
 %\red{we need a good short-cut for this distance}
 \[
-d^2_P(X) := || X - [P]X||^2 = \sum_{i=1}^n (X_i - X_{P(i)})^2.
+d^2_V(X) := || X - [P]X||^2 = \sum_{i=1}^n (X_i - X_{P(i)})^2.
 \]
 
 
@@ -503,6 +511,8 @@ The Binned distance under permutation is then defined as
 \begin{eqnarray*}
 b^2_P(X) &:=& ||C(X,Y) - C(X,[P]Y)||^2 \\ &=& \sum_{i=1}^p \sum_{j=1}^q (C_{X_i,Y_j} - C_{X_i,P(Y)_j})^2.
 \end{eqnarray*}
+The usual convention is to take the number of bins equal to the square root of the number of observations. So we take $p = q = \ceil[\big]{\sqrt{n}}$ where $\ceil[\big]{x}$ is the smallest integer greater than or equal to $x$. \\
+
 Binned distance is highly susceptible to small differences in values and depends on the number of bins as well as exact cut-offs. This is particularly problematic for small number of points. As a remedy to that, we are considering Weighted bin distance next, which is based on the density rather than point frequency. For large number of points the weighted binning is computationally too intensive, in which case we will make use of the unweighted  binned distance.
 %\red{careful: $C(X,[P]Y)$ is not the same as $C_{i,P(j)}$. $C_{i,j}$ is the count for points falling into cell $i,j$ - it's not enough to permute the grid counts, we need to get the grid counts of the permuted variable. Introduce $C$ as a function of $X$ and $Y$ ....}
 
@@ -526,11 +536,51 @@ where $W_{X_i,Y_i}$ denotes the joint (empirical) density of $X$, $Y$ at locatio
        \label{wbdist}
 \end{figure}
 \end{itemize}
+
+\begin{itemize}
+\item Canberra Distance: Using exactly the same setup as the binned distance , the canberra distance under permutation is defined as
+%\begin{eqnarray*}
+\[
+c^2_P(X)  = \left \{ 
+\begin{array}{ll}
+\sum_{i=1}^p \sum_{j=1}^q \frac{ |C_{X_i,Y_j} - C_{X_i,P(Y)_j}|}{ C_{X_i,Y_j} + C_{X_i,P(Y)_j}} & \text{if } C_{X_i,Y_j} + C_{X_i,P(Y)_j} > 0,\\
+0 & \text{otherwise},
+\end{array} \right.
+\]
+Like the binned distance, the canberra distance is also effected by the number of bins used. Here again we use the usual convention as the binned distance. Canberra distance is an improvement to the binned distance as it puts less weight on the bins which has a large number of points than the bins with fewer points. Visually it is difficult to differentiate between a single point and a number of points having the exact coordinates. Canberra distance has the same drawbacks as the binned distance. So we defined the weighted canberra distance which is a similar measure as the weighted bin distance.
+
+\item Weighted Canberra Distance:  Using the same setup of the weighted bin distance, the weighted canberra distance under permutation is defined as 
+%\begin{eqnarray*}
+\[
+wc_P^2(X) = \left \{ 
+\begin{array}{ll}
+\sum_{i=1}^p \sum_{j=1}^q \frac{ |W_{X_i,Y_j} - W_{X_i,P(Y)_j}|}{ W_{X_i,Y_j} + W_{X_i,P(Y)_j}} & \text{if } W_{X_i,Y_j} + W_{X_i,P(Y)_j} > 0,\\
+0 & \text{otherwise},
+\end{array} \right.
+\] 
+%\end{eqnarray*}
+where like the weighted bin distance, $W_{X_i,Y_i}$ denotes the joint (empirical) density of $X$, $Y$ at location $(X_i, Y_i)$. 
+
+\item Correlation between $X$ and $[P]X$: Let $X$ be a continuous variable. The correlation between the $X$ and $[P]X$ is defined as
+\[
+r_P(X) = \frac{ \sum_{i=1}^n (X_i - \bar{X_i})(X_{P(i)} - \bar{X}_{P(i)})}{\sqrt{\sum_{i=1}^n (X_i - \bar{X_i})^2}\sqrt{\sum_{i=1}^n (X_{P(i)}- \bar{X}_{P(i)})^2}}.
+\]
+
+\item Hausdorff distance: Let $a \in A$ and $b \in B$ be two sets of points. The Hausdorff distance between A and B is defined as
+ \[
+H_P(X)  = max (h(A, B), h(B, A))
+\]
+where 
+\begin{eqnarray*}
+h(A, B) &:=& \max_{a \in A} \min_{b \in B} ||a - b|| \\ & = & \max_{a \in A} \min_{b \in B} \sqrt{\sum_{i=1}^n (a_i - b_i)^2}
+\end{eqnarray*}
+In our case $A$ and $B$ are the points whose coordinates are $(X_i, Y_i)$ and $(X_{P(i)}, Y_i)$ respectively. This measure is computationally intensive.
+
 The remaining distance measures are different from the ones above, in that they are used to directly draw inference on a linear association between variables $X$ and $Y$, whereas the other ones were not specifically tailored to this purpose.
 
 %\blue{The remaining distance measures are different from the ones above, in that they are used to directly draw inference on a linear association between variables $X$ and $Y$, whereas the other ones were not specifically tailored to this purpose.}
 
-\begin{itemize}
+%\begin{itemize}
 \item $t$ statistic: In this paper we used the test statistic of a t-test based on the correlation coefficient $r$ where $$t =\frac{r \sqrt{n - 2}}{\sqrt{1 - r^2}}$$ where $n$ is the number of observations in $X$ or $Y$. This is the only measure that makes a distributional assumption that the ($X$,$Y$) follows approximately a bivariate Normal distribution. Hence the $t$-statistic follows a t distribution with ($n$ - 2) degrees of freedom.
 %\red{use either upper case or lower case $T$, not both. }
 %The first one was used when one variable is continuous and the other is categorical while the other is used when both the variables are continuous.  
@@ -608,7 +658,6 @@ $\rho$ uses both the variables.
 %\label{dot_table}
 %\end{table*}
 
-
 \section{People's pick method}\label{user.distance}
 
 To explore how well the various distance measures matched visual characteristics of the lineup,  we conducted a human subject's experiment. For the scatterplot example, each participant was given 5 lineups similar to that in Figure \ref{sca_1}. The participant was asked (1) which of the plots exhibited the strongest positive association between the variables, and then after revealing the location of the observed data plot,  (2) the participants were asked to identify the plots that looked the most similar to the observed data plot. There were 15 participants.  It is the second evaluation, on the closeness of the null plots to observed data plot, that we focused on. Most people provided 2-3 closeness picks.  Because we didn't specifically request participants to order their closeness picks, we combined the picks, putting more emphasis if the plot was listed as the first or second, than if they were of the second or third choices:
@@ -639,15 +688,15 @@ where $p_{1,2}$ is the proportion of participants listing the plot  in the first
 %where $m_i$ is the number of participants who chose the plot which appeared the most frequent times in the first $i$ choices but not the plot which matches the $(i-1)$-th choice and $n_i$ is the number of participants who reported at least  $i$ choices. Table \ref{sca_table} gives the People's pick for the lineup in Figure~\ref{sca_1}. 
 
 
-\begin{figure*}[bht]
+\begin{figure*}[htbp]
 \centering
 \subfigure[]{
 \includegraphics[scale=0.41]{sca2.pdf}
-%\label{sca_1}
+\label{sca_1}
 }
 \subfigure[]{
 \includegraphics[scale=0.41]{dist_lineup_final.pdf}
-%\label{sca_2}
+\label{sca_2}
 }
 \label{sca_lineup}
 	\vspace{-.1in}
@@ -908,7 +957,7 @@ The purpose of this paper has been to take a closer look at the null plots that 
 
 %The purpose of this paper has been to examine the effectiveness of visual inference methods in direct comparison to existing inference methods. We need to be clear that this is not the purpose of visual inference generally: visual methods should not be seen as competitors to traditional inference.  The purpose here, is to  establish properties and  efficacy of visual testing procedures in order to use them in situations where traditional tests cannot be used. For this experiment the effect of $\beta_2$ was examined using side-by-side boxplots. Future experiments will be conducted to compare other regression parameters as described in Table \ref{tbl:stat_multiple} and assess sensitivity of power to modeling conditions.
 
-\begin{figure*}[hbt]
+\begin{figure*}[htbp]
 \centering
 \subfigure[]{
 \includegraphics[scale=0.7]{dist_vs_zscore.pdf}
@@ -924,6 +973,204 @@ The purpose of this paper has been to take a closer look at the null plots that 
 %{Caption of subfigures \subref{fig:subfig1}, \subref{fig:subfig2} and \subref{fig:subfig3}}
 \end{figure*}
 
+\newpage
+
+\section{Comparison of the distance measures}
+
+For a particular dataset containing two continuous variables $X$ and $Y$, we generate 50 random datasets by permuting the $X$ variable but keeping the $Y$ variable fixed. We compute the distances between the actual data and each of the 50 permuted datasets by using all of the eleven distance measures defined above. We then plot a scatterplot matrix of the eleven distance measures. Figure \ref{scamat} gives the scatterplot matrix of the eleven distance measures.
+
+\begin{figure}[htbp]
+%\begin{figurehere}
+   \centering
+       \includegraphics[width=5in]{sca_plot_matrix.pdf}
+	\vspace{-.2in}
+       \caption{Scatterplot matrix of the distance measures based on the 50 randomly generated datasets obtained by permuting the $X$ variable randomly 50 times.}
+       \label{scamat}
+\end{figure}
+
+Figure \ref{scamat} shows that some of the distance measures are highly correlated, positive or negative. The weighted bin distance $w_P(X)$ is highly positively correlated to the weighted canberra distance $wc_P(X)$ and the correlation between $X$ and permuted $X$ ($r_P$) has a high negative correlation to the euclidean distance of the actual values ($d_V$). Also there is a fairly high correlation between t-statistic $t$ and Spearman's rank correlation $\rho$.  So it does not make sense to use all the distance measures as they do not explain the data differently. So we decided to exclude weighted canberra distance, euclidean distance of the actual values and Spearman's rank correlation $\rho$ from the analysis. So we have eight different measures.
+
+\section{Recent Developments}
+
+The main purpose is to find a distance measure from the eight shortlisted distance measures which describes the visual distance in the best possible way. Describing plots numerically with the help of a distance measure is next to impossible. But we want to find the distance measure which works in most situations in most types of data. \\
+
+We are interested in datasets with two continuous variables. Let us assume $X$ and $Y$ are the two variables.  We permute one of the continuous variables, say $X$ by keeping the other variable (say $Y$) fixed to obtain one set of permuted data. We repeat the above process 10,000 times to obtain 10,000 randomly generated datasets. \\
+
+We calculate the distance between the actual dataset and each of the 10,000 permuted datasets by using the eight shortlisted distance measures from the eleven defined in Section \ref{defn.distance}. Hence we have 10,000 of each of the distance measures. We select those permuted datasets which has the minimum distance from the actual dataset according to the eight distance measures. So we obtain eight permuted datasets which are the closest to the actual dataset. \\
+
+The drawbacks with this procedure is that the hamming distance ($h_P$)  and the binned distance ($b_P$) have discrete distributions. Hence, according to these distance measures, in most situations there may be more than one dataset which have the minimum distance from the actual dataset. But we select any one of the datasets randomly. Also in some cases two or more distance measures may yield the same dataset as the one ``closest" to the actual dataset. In these cases, we randomly select the other datasets from the 10,000 permuted datasets.   \\
+
+Then we form a lineup with 3 rows and 3 columns by putting the actual dataset in the middle and randomly placing the other datasets in the other eight positions. Figure \ref{minimum} shows such a lineup.
+
+\begin{figure}[htbp]
+%\begin{figurehere}
+   \centering
+       \scalebox{1}{\includegraphics{minimum.pdf}}
+	\vspace{-.2in}
+       \caption{Lineup showing the actual plot and plots made of the permuted data which has the minimum distance from the actual plot according to the eight distance measures.  }
+       \label{minimum}
+\end{figure}      
+
+\section{Datasets}
+
+We do not want to restrict ourselves to any particular relationship between the two continuous variables $X$ and $Y$. The distance measure should be able to pick the effect of outliers and clusters in the data. So we come up with four different datasets which generalizes the relationship between $X$ and $Y$ as far as possible. \\[2cm]
+
+\Large{DataSet 1}\\
+
+\normalsize
+
+The first dataset deals with the linear relationship between $X$ and $Y$. \\
+
+$X_i \sim \hbox{Normal}(0, 1)$ for $i = 1, 2, \dots, n.$ \\[0.2cm]
+$Y_i = \beta_0 + \beta_1 x_i + \epsilon_i$ \\[0.3cm]
+where $\beta_0 = 3.5$ and $\epsilon_i  \stackrel{iid}\sim \hbox{Normal}(0, \sigma)$. We take $\sigma = 6$. Such a dataset is presented in Figure \ref{data1}.\\
+%where $\mu_X = 6$, $\sigma_X = 4$, $\beta_0 = 3.5$, $\beta_1 = 0.75$, $\sigma_Y = 6$.
+
+\begin{figure}[hbtp]
+%\begin{figurehere}
+   \centering
+       \scalebox{0.38}{\includegraphics{data1.pdf}}
+%      \scalebox{0.3}{\includegraphics{data1_30_5_1.pdf}}
+%       \scalebox{0.3}{\includegraphics{data1_50_5_1.pdf}}
+       \caption{One typical example of dataset 1.}
+       \label{data1}
+%	\vspace{-.1in}
+\end{figure}
+
+%\begin{figure}[hbtp]
+%%\begin{figurehere}
+%   \centering
+%       \scalebox{0.3}{\includegraphics{data1_20_1_1.pdf}}
+%       \scalebox{0.3}{\includegraphics{data1_20_3_1.pdf}}
+%       \scalebox{0.3}{\includegraphics{data1_20_6_1.pdf}}
+%       \caption{Different values of $\beta$ -- 0.1, 0.3 and 0.6 and $n = 20$.}
+%	\vspace{-.1in}
+%\end{figure}
+
+%\subsection*{DataSet 2}
+
+%\newpage
+
+\Large{DataSet 2}\\
+
+\normalsize
+
+The second dataset is a dataset with contamination. To generate the contaminated data set of size $n = 50$ we used the following model
+
+\[ X_i \sim \left\{ \begin{array}{ll}
+         \hbox{Normal} (0, 1) & \mbox{for $i = 1,2, \dots, n_1$}\\
+        \hbox{Normal} (\mu, 1/3) & \mbox{for $i = 1,  \dots, n_2$}.\end{array} \right. \]
+
+\[ Y_i \sim \left\{ \begin{array}{ll}
+         5 + \beta_1 X_i + \epsilon_i  & \mbox{for $i = 1,2, \dots, n_1$}\\
+         20 + \eta_i & \mbox{for $i = 1, \dots, n_2$}.\end{array} \right. \]
+         
+where  $\epsilon_i \sim N(0, \sigma)$, $\eta_i \sim N(0, \sigma/3)$ , $\mu = -1.75$ and $n = n_1 + n_2$.  We use $\sigma = 5$, $n_1 = 40$ and $n_2 = 10$. \\      
+
+\begin{figure}[hbtp]
+%\begin{figurehere}
+   \centering
+       \scalebox{0.38}{\includegraphics{data2.pdf}}
+%      \scalebox{0.3}{\includegraphics{data1_30_5_1.pdf}}
+%       \scalebox{0.3}{\includegraphics{data1_50_5_1.pdf}}
+       \caption{One typical example of dataset 2.}
+       \label{data2}
+%	\vspace{-.1in}
+\end{figure}
+        
+%        where $\mu_{X1} = 12$, $\mu_{X2} = 40$, $\sigma_{X1} = 6$, $\sigma_{X2} =  \sigma_{Y2} = 0.5$, $\beta_0 = 4.5$, $\beta_1 = 0.375$, $\sigma_{Y1} = 6$.
+        
+%\begin{figure}[hbtp]
+%%\begin{figurehere}
+%   \centering
+%       \scalebox{0.4}{\includegraphics{data2_40_5_1.pdf}}
+%       \scalebox{0.4}{\includegraphics{data2_40_08_1.pdf}}
+%       \caption{Different values of $\beta$ (positive and negative)}
+%	\vspace{-.1in}
+%\end{figure}        
+        
+%\subsection*{DataSet 3}
+
+%\newpage
+
+\Large{DataSet 3}\\[0.1cm]
+
+\normalsize
+
+The third dataset is a dataset where as $X$ increases, the variability in $Y$ increases first and then decreases.
+
+\[ X_i \sim \left\{ \begin{array}{ll}
+         \hbox{Normal} (15, 0.5) & \mbox{for $i = 1,2, \dots, n_1$}\\
+        \hbox{Normal} (15, 3) & \mbox{for $i = 1,  \dots, n_2$}.\end{array} \right. \]
+
+\[ Y_i \sim \left\{ \begin{array}{ll}
+         \hbox{Normal} (40 , 8) & \mbox{for $i = 1,2, \dots, n_1$}\\
+        \hbox{Normal}  (15 , 7) & \mbox{for $i = 1, \dots, n_2$}.\end{array} \right. \]
+        
+ where we take $n_1 = 5$, $n_2 = 35$ and $n = n_1 + n_2 = 40$. \\       
+ 
+ \begin{figure}[hbtp]
+%\begin{figurehere}
+   \centering
+       \scalebox{0.38}{\includegraphics{data3.pdf}}
+%      \scalebox{0.3}{\includegraphics{data1_30_5_1.pdf}}
+%       \scalebox{0.3}{\includegraphics{data1_50_5_1.pdf}}
+       \caption{One typical example of dataset 3.}
+       \label{data3}
+%	\vspace{-.1in}
+\end{figure}
+
+%\begin{figure}[hbtp]
+%%\begin{figurehere}
+%   \centering
+%       \scalebox{0.4}{\includegraphics{data3_40_1.pdf}}
+%       \caption{Dataset 3}
+%	\vspace{-.1in}
+%\end{figure}
+
+%\subsection*{DataSet 4}
+
+%\newpage
+
+\Large{DataSet 4}\\[0.1cm]
+
+\normalsize
+
+The fourth and final dataset has 3 visible clusters, which are 6 units apart from each other.\\ 
+
+$\epsilon_i \stackrel{iid}\sim \hbox{Normal} (0, 1)$ for $i = 1, 2, \dots, n.$ \\[0.2cm]
+$X_i  = \theta + \epsilon_i$ \\
+$Y_i = \delta + \epsilon_i$ \\
+where 
+
+\[ (\theta, \delta) \sim \left\{ \begin{array}{ll}
+         (-3, 0) & \mbox{for $\qquad i = 1,2, \dots, n_1$}\\
+        	(3, 0) & \mbox{for  $\qquad i = n_1 + 1, \dots, n_1 + n_2$}\\
+        	(0, \sqrt{27}) & \mbox{for  $\qquad i = n_1 + n_2 + 1, \dots, n$}\\
+        \end{array} \right. \]
+        
+        
+        where $n = n_1 + n_2 + n_3.$
+        
+ \begin{figure}[ht]
+%\begin{figurehere}
+   \centering
+       \scalebox{0.38}{\includegraphics{data4.pdf}}
+%      \scalebox{0.3}{\includegraphics{data1_30_5_1.pdf}}
+%       \scalebox{0.3}{\includegraphics{data1_50_5_1.pdf}}
+       \caption{One typical example of dataset 4.}
+       \label{data4}
+%	\vspace{-.1in}
+\end{figure}        
+        
+%\begin{figure}[hbtp]
+%%\begin{figurehere}
+%   \centering
+%       \scalebox{0.4}{\includegraphics{data4_10_10_10_1.pdf}}
+%       \caption{Dataset 4}
+%	\vspace{-.1in}
+%\end{figure}        
+% 
 \paragraph{Acknowledgement:}
 
 This work was funded by National Science Foundation grant DMS 1007697. All plots are done with the {\tt ggplot2} \citep{hadley:2009} package in R.
@@ -1026,9 +1273,8 @@ This work was funded by National Science Foundation grant DMS 1007697. All plots
 \bibliographystyle{plainnat}
 %%\bibliographystyle{ieeetr}
 \bibliography{references}
-%
-%%\end{multicols}
 
+%\end{multicols}
 
 \end{document}  %End of document.
 
