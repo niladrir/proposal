@@ -292,7 +292,7 @@ In this paper we check the projection pursuit optimization on pure noise with no
 \subsection{Motivation}
 
 The optimization procedure in the  \texttt{tourr} package is new, different from the algorithms that have existed before in GGobi \cite{STLBC03} and XGobi \cite{SCB91}. 
-We have been using PP with the PDA index, on a large $p$, small $n$ data set from a microarray study, and for comparison have been looking at pure noise data. As strange as it might seem it seemed like we could often pick the projection of the  ``original" data from a lineup of projections of permuted class data. This should not be possible. 
+We have been using PP with the PDA index, on a large $p$, small $n$ data set from a microarray study, and for comparison have been looking at pure noise data. As strange as it might seem it seemed like we could often pick the projection of the  ``original'' data from a lineup of projections of permuted class data. This should not be possible. 
 
 In some situations where the number of dimensions ($p$) is approximately equal or close to the number of observations ($n$), we may see separation among the groups when a linear discriminant analysis (LDA) or a penalized discriminant analysis (PDA) is performed. A natural question is whether there is actually a real separation among the groups or we observed the separation due to the fact that $p \approx n$ or $p > n$. Let us consider the following example of LDA method used to classify the groups of paper wasps. There are 50 different paper wasps divided into 4 groups: Foundress (F), Gyne (G), Queen (Q) and Worker (W). There are 14 paper wasps of type Foundress and 12 each of the other 3 types. The authors, knowing that LDA requires that the number of observations ($n$) should be larger than ($p$), randomly selected a subset of 40 significantly different oligos from a total of 447 oligos. Figure \ref{oligo} shows the scatterplot of LD1 versus LD2.
 
@@ -639,7 +639,7 @@ The Binned distance under permutation is then defined as
 \begin{eqnarray*}
 b^2_P(X) &:=& ||C(X,Y) - C(X,[P]Y)||^2 \\ &=& \sum_{i=1}^p \sum_{j=1}^q (C_{X_i,Y_j} - C_{X_i,P(Y)_j})^2.
 \end{eqnarray*}
-<<<<<<< HEAD
+
 The usual convention is to take the number of bins equal to the square root of the number of observations. So we take $p = q = \lceil{\sqrt{n}} \rceil$ where $\lceil{x} \rceil$ is the smallest integer greater than or equal to $x$. \\
 
 The usual convention is to take the number of bins equal to the square root of the number of observations. So we take $p = q = \lceil {\sqrt{n}}\rceil$ where $\lceil {x}\rceil$ is the smallest integer greater than or equal to $x$. \\
@@ -996,7 +996,7 @@ Actual & 7  & $-19$ & $-8.5$ & $-9.9$ & $-4.1$ & & 0.1 & 0.2 & 93.3\\[1ex]
 
 \section{Results}\label{results}
 %%\red{this results section refers to the dotplots, I think - this needs to be fixed.} \green{I changed this part, but most of the things that I wanted to write has gone to the previous section.}
-The experiment is conducted to study the ability of human observers to detect the positive association between two continuous variables. Data is simulated with the sample size $n = 20$ and $n=30$. The continuous variables ($X$,$Y$) are generated from a Bivariate Normal distribution with $\mu_X = 6$, $\mu_Y = 3$, $\sigma_X = 4$, $\sigma_Y = 1$, $\rho_{XY} = \rho$ where $\rho$ is generated from a Uni(0.2, 0.7). Five replicates of the above combination are generated (four with $n =20$ and one with $n=30$). These produced five different ``observed data sets". The null plots for the lineups was generated from each of the data sets. \\
+The experiment is conducted to study the ability of human observers to detect the positive association between two continuous variables. Data is simulated with the sample size $n = 20$ and $n=30$. The continuous variables ($X$,$Y$) are generated from a Bivariate Normal distribution with $\mu_X = 6$, $\mu_Y = 3$, $\sigma_X = 4$, $\sigma_Y = 1$, $\rho_{XY} = \rho$ where $\rho$ is generated from a Uni(0.2, 0.7). Five replicates of the above combination are generated (four with $n =20$ and one with $n=30$). These produced five different ``observed data sets''. The null plots for the lineups was generated from each of the data sets. \\
 
 Figure \ref{dist_1} and Figure \ref{dist_2} gives scatterplots of the People's pick against the z-scores and the percentiles for the distance measures. $R^2$ gives a measure of the correlation between People's pick and the distance measures. The median $R^2$ from the 5 lineups indicates that Spearman's $\rho$ worked best followed by t-statistic and weighted bin.
 
@@ -1195,7 +1195,7 @@ We are interested in datasets with two continuous variables. Let us assume $X$ a
 
 We calculate the distance between the actual dataset and each of the 10,000 permuted datasets by using the eight shortlisted distance measures from the eleven defined in Section \ref{defn.distance}. Hence we have 10,000 of each of the distance measures. We select those permuted datasets which has the minimum distance from the actual dataset according to the eight distance measures. So we obtain eight permuted datasets which are the closest to the actual dataset. \\
 
-The drawbacks with this procedure is that the hamming distance ($h_P$)  and the binned distance ($b_P$) have discrete distributions. Hence, according to these distance measures, in most situations there may be more than one dataset which have the minimum distance from the actual dataset. But we select any one of the datasets randomly. Also in some cases two or more distance measures may yield the same dataset as the one ``closest" to the actual dataset. In these cases, we randomly select the other datasets from the 10,000 permuted datasets.   \\
+The drawbacks with this procedure is that the hamming distance ($h_P$)  and the binned distance ($b_P$) have discrete distributions. Hence, according to these distance measures, in most situations there may be more than one dataset which have the minimum distance from the actual dataset. But we select any one of the datasets randomly. Also in some cases two or more distance measures may yield the same dataset as the one ``closest'' to the actual dataset. In these cases, we randomly select the other datasets from the 10,000 permuted datasets.   \\
 
 Then we form a lineup with 3 rows and 3 columns by putting the actual dataset in the middle and randomly placing the other datasets in the other eight positions. Figure \ref{minimum} shows such a lineup.
 
