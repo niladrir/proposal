@@ -5,11 +5,7 @@
 \usepackage{multicol}
 
 \usepackage{amsmath, amssymb, fullpage, amsthm, array, algorithm2e,graphicx,mathtools, xparse}
-%\NewDocumentCommand{\ceil}{s O{} m}{%
-%  \IfBooleanTF{#1} % starred
-%    {\left\lceil#3\right\rceil} % \ceil*[..]{..}
-%    {#2\lceil#3#2\rceil} % \ceil[..]{..}
-%}
+
 \usepackage{color}
 \usepackage{subfigure}
 %\usepackage[dvips]{graphics}
@@ -643,7 +639,10 @@ The Binned distance under permutation is then defined as
 \begin{eqnarray*}
 b^2_P(X) &:=& ||C(X,Y) - C(X,[P]Y)||^2 \\ &=& \sum_{i=1}^p \sum_{j=1}^q (C_{X_i,Y_j} - C_{X_i,P(Y)_j})^2.
 \end{eqnarray*}
+<<<<<<< HEAD
 The usual convention is to take the number of bins equal to the square root of the number of observations. So we take $p = q = \lceil{\sqrt{n}} \rceil$ where $\lceil{x} \rceil$ is the smallest integer greater than or equal to $x$. \\
+
+The usual convention is to take the number of bins equal to the square root of the number of observations. So we take $p = q = \lceil {\sqrt{n}}\rceil$ where $\lceil {x}\rceil$ is the smallest integer greater than or equal to $x$. \\
 
 Binned distance is highly susceptible to small differences in values and depends on the number of bins as well as exact cut-offs. This is particularly problematic for small number of points. As a remedy to that, we are considering Weighted bin distance next, which is based on the density rather than point frequency. For large number of points the weighted binning is computationally too intensive, in which case we will make use of the unweighted  binned distance.
 %\red{careful: $C(X,[P]Y)$ is not the same as $C_{i,P(j)}$. $C_{i,j}$ is the count for points falling into cell $i,j$ - it's not enough to permute the grid counts, we need to get the grid counts of the permuted variable. Introduce $C$ as a function of $X$ and $Y$ ....}
