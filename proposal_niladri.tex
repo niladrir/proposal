@@ -13,7 +13,7 @@
 \newtheorem{dfn}{Definition}[section]
 \newtheorem{cor}{Corollary}[thm]
 \newtheorem{con}{Conjecture}[thm]
-\setlength{\parindent}{0in}   % for no indent
+%\setlength{\parindent}{0in}   % for no indent
 
 \topmargin -0.10in   % when making pdf
 \textheight 9.15in  % when making pdf
@@ -32,7 +32,7 @@ PhD Proposal \\
 
 \vspace{.5in}
 
-\Large{\bf Visualization of Statistical Inference}
+\Large{\bf Application of Lineup Protocols in different scenarios }
 
 \vspace{1in}
 
@@ -59,7 +59,7 @@ May 10, 2012
 
 \section{Background}Statistical graph or plot of data has its presence way before the development of the classical inference procedures. The first recorded instance of statistical graphics based on the data was known to be in the year 1644 (variations in determination of longitude between Toledo and Rome as illustrated by \cite{friendly:2001}). The development of fundamental classical inferential procedures took around two hundred years from Bernoulli through Fisher (1713 to 1935 as per \cite{hald:2004}). 
 
-The power of statistical plots in statistical data analysis is widely acknowledged. Model diagnostics or exploratory data analysis is predominantly dependent on statistical plots and visualization through human observation. Statistical graphs has been widely used for going beyond the standard paradigms of estimation and testing, to look for patterns in data beyond the expected. As pointed out in Gelman [2004], improvements in computation has helped in the developments of statistical graphics. Higher resolution graphics, more sophisticated user interfaces and accessible software had made graphical methods to be more widely available. The problem is though we can represent our findings using statistical graphics, there is possibly no way to say what we see is real. 
+The power of statistical plots in statistical data analysis is widely acknowledged. Model diagnostics or exploratory data analysis is predominantly dependent on statistical plots and visualization through human observation. \cite{cleveland:1984} talks about the visual perception and the development of graphical methods. Statistical graphs has been widely used for going beyond the standard paradigms of estimation and testing, to look for patterns in data beyond the expected. As pointed out in Gelman [2004], improvements in computation has helped in the developments of statistical graphics. Higher resolution graphics, more sophisticated user interfaces and accessible software had made graphical methods to be more widely available. A grammar of graphics introduced by \cite{wilkinson:1999} presents a structured way to generate specific graphics from data and define connections between disparate types of plot. The problem is though we can represent our findings using statistical graphics, there is possibly no way to say what we see is real. 
 
 % to look presentation of findings. The question is whether we can use this powerful tool, the statistical plots, to make statistical inference. This has been a open question until recently when \citet{buja:2009} presented formal structure of the visual inference procedure to detect the significant pattern in the data.
 
@@ -84,10 +84,10 @@ We may have three different types of alternative hypotheses against the null hyp
 \item $H_a: \mu < \mu_0$ 
 \item $H_a: \mu \ne \mu_0$
 \end{itemize}
-where $\mu_0$ is some prespecified value that we assume holds true under $H_0$. The first two alternative hypotheses is known as one-sided alternatives and the third one is known as two-sided alternative. Also $H_0$ and $H_a$ should always contradict each other.
+where $\mu_0$ is some pre-specified value that we assume holds true under $H_0$. The first two alternative hypotheses is known as one-sided alternatives and the third one is known as two-sided alternative. Also $H_0$ and $H_a$ should always contradict each other.
 
 Let us assume that we want to test $$H_0: \mu = \mu_0 \qquad \hbox{vs} \qquad H_a: \mu > \mu_0$$
-Now based on the sample we have in hand, we calculate the appropriate sample statistic. So in this case we calculate the sample mean $\bar{X}$ and $S$. If $H_a$ is indeed true, we should expect $\bar{X}$ to be greater than $\mu_0$. Then the question of interest is how much greater than $\mu_0$ should $\bar{X}$ be before we start doubting the null hypothesis. In other words, is a value of $\bar{X}$ unusually large if $H_0: \mu = \mu_0$ is supposed to be true. If the answer is yes, then that would be evidence against $H_0$ in favor of $H_a$. To assess how unusual or unlikely our data is and hence the corresponding sample mean, we may look where the estimate of the standardized score falls on the distribution under $H_0$. 
+Now based on the sample we have in hand, we calculate the appropriate sample statistic. So in this case we calculate the sample mean $\bar{X}$ and $S$. If $H_a$ is indeed true, we should expect $\bar{X}$ to be greater than $\mu_0$. Then the question of interest is how much greater than $\mu_0$ should $\bar{X}$ be before we start doubting the null hypothesis. In other words, is a value of $\bar{X}$ unusually large if $H_0: \mu = \mu_0$ is supposed to be true. If the answer is yes, then that would be evidence against $H_0$ in favor of $H_a$. To assess how unusual or unlikely our data is and hence the corresponding sample mean, we may look where the estimate of the standardized score falls on the distribution under $H_0$.  For more details take a look at \cite{kutner:2005}.
 
 Assuming that the sample comes from a Normal population or the sample size is large enough so that the sampling distribution of $\bar{X}$ is approximately Normal, the standardized score or the test statistic under $H_0$, also known as, $t$-score is given by
 $$t = \frac{\bar{X} - \mu_0}{S/\sqrt{n}}$$
@@ -109,14 +109,14 @@ Similarly for a two sided alternative, we have
  \item Reject $H_0$ if $|t_{\hbox{obs}}| > t_{1 - \alpha/2}$
  \item Fail to reject $H_0$ if $|t_{\hbox{obs}}| < t_{1 - \alpha/2}$
  \end{itemize}
- We may also make the decision based on so-called p-value. The p-value is the probability of getting a value at least as unusual as the observed sample statistic assuming that $H_0$ is true. Hence the p-value measures evidence against $H_0$. The smaller the p-value the stronger the evidence is against the null hypothesis $H_0$ and in favor of $H_a$. As previously discussed, the p-value is compared to the level of significance $\alpha$ to make the decisions.
+ We may also make the decision based on so-called p-value. As defined in \cite{moore:2009}, the p-value is defined as the probability of getting a value at least as unusual as the observed sample statistic assuming that $H_0$ is true. Hence the p-value measures evidence against $H_0$. The smaller the p-value the stronger the evidence is against the null hypothesis $H_0$ and in favor of $H_a$. As previously discussed, the p-value is compared to the level of significance $\alpha$ to make the decisions.
   \begin{itemize}
  \item Reject $H_0$ if p-value $<$ $\alpha$
  \item Fail to reject $H_0$ if p-value $>$ $\alpha$
  \end{itemize}
  Type I error or the level of significance, denoted by $\alpha$, is the probability of rejecting the null hypothesis $H_0$ when $H_0$ is true. Type II error, denoted by $\beta$ is the probability of failing to reject the null hypothesis $H_0$ when $H_0$ is false. Type I error is committed in a jury trial when there is ``no guilty'', a person is convicted as ``guilty''. This is a serious mistake as an innocent person is convicted. Type II error is committed when there is a ``guilty'' but he was not convicted. The power of a statistical test is defined as the probability of rejecting the null hypothesis $H_0$ when $H_0$ is false and is denoted by 1 $-$ $\beta$. \\
  
-More generally, let $\theta$ be a population parameter of interest, with $\theta$ $\in$ $\Theta$, the parameter space. Any null hypothesis $H_0$ then partitions the parameter space into $\Theta_0$ and $\Theta_0^c$ with $H_0: \theta \in \Theta_0$ versus $H_a: \theta  \in \Theta_0^c$. \\
+More generally, let $\theta$ be a population parameter of interest, with $\theta$ $\in$ $\Theta$, the parameter space. Any null hypothesis $H_0$ then partitions the parameter space into $\Theta_0$ and $\Theta_0^c$ with $H_0: \theta \in \Theta_0$ versus $H_a: \theta  \in \Theta_0^c$ as defined in \cite{casella:2002}. \\
 
 Let $\chi$ be the set of all possible values of $\mathbf{X} = (X_1, \dots, X_n)$. Then a test function or a test rule $\phi(X_1, \dots, X_n)$ is a function from $\chi$ into [0, 1] with the interpretation that if $\mathbf{X} = (X_1, \dots, X_n)$ is observed then $H_0$ is rejected with probability $\phi( \mathbf{X})$. Hence the following definitions:
 \begin{itemize}
@@ -136,35 +136,33 @@ The Rorschach protocol is named after the (pop-)psychology Rorschach test, in wh
 
 {\bf Lineup:} The lineup protocol gets its name after the police lineup of criminal investigation. In a police lineup, the accused is placed among a set of innocent people who may be prisoners, actors or volunteers having no connection with the case. The witness is asked to pick from this lineup. Likewise in a lineup protocol, the accused which is the observed plot is placed randomly among a set of null plots, say $m$, and the witness (in this case the viewer) is asked to identify the plot as most different from the others. If the viewer  can correctly identify the observed plot from the lineup, we have reasons to believe that the observed plot has a specific pattern which is missing in the null plots. This protocol leads to the development of the technique of visual inference by defining the test statistic as a plot that mostly show a specific pattern in the data when alternative hypothesis is true. Figure \ref{lineup} shows a typical lineup. \\
 
-Let us consider the following example. \\
-
-Model : $Y_i$ = $\beta_0$ + $\beta_1 X_i$ + $\epsilon_i$, \qquad $\epsilon_i \stackrel{iid}{\sim} N(0, \sigma^2)$ \\
-\vspace{0.1cm}
-
-We want to test whether there exists a significant linear relationship between $X$ and $Y$. To test that, we have the following null and alternative hypothesis:
+Let us consider the following example . The data represents the concentration of a metal in mg/kg for two sites A and B.
+%Model : $Y_i$ = $\beta_0$ + $\beta_1 X_i$ + $\epsilon_i$, \qquad $\epsilon_i \stackrel{iid}{\sim} N(0, \sigma^2)$ \\
+%\vspace{0.1cm}
+We want to test whether there exists a significant difference between the concentration levels in the two sites A and B. Let $\mu_1$ denote the mean concentration level in Site A and $\mu_2$ denote the mean concentration level in Site B. To test that, we have the following null and alternative hypothesis:
 \[
-H_0: \beta_1 = 0 \qquad vs \qquad H_a: \beta_1 \ne 0
+H_0: \mu_1 = \mu_2 \qquad \hbox{versus} \qquad H_a: \mu_1 \ne \mu_2
 \]
 %\vspace{0.4cm}
-The test statistic is the plot of the real data. The 19 null plots are generated by assuming that null hypothesis $H_0: \beta_1 = 0$ is true and the observed plot is placed randomly among these 19 plots in a lineup given in Figure \ref{lineup}. The viewer is asked to identify the plot which is most different. If the viewer can identify the plot of the real data, we will have reasons to believe that the observed plot has a pattern which is absent in the null plots. So we would reject the null hypothesis. If the viewer cannot identify the observed plot, we fail to reject the null hypothesis. \\
+The test statistic is the plot of the real data. The 19 null plots are generated by assuming that null hypothesis $H_0: \mu_1 =  \mu_2$ is true. So we permute the class variable site to obtain the null plots keeping the other variables fixed. The observed plot is placed randomly among these 19 plots in a lineup given in Figure \ref{lineup}. The viewer is asked to identify the plot which is most different. If the viewer can identify the plot of the real data, we will have reasons to believe that the observed plot has a pattern which is absent in the null plots. So we would reject the null hypothesis. If the viewer cannot identify the observed plot, we fail to reject the null hypothesis. \\
 %\newpage
 
 \begin{figure}[hbtp]
 %\begin{figurehere}
    \centering
-       \scalebox{0.82}{\includegraphics{lineup.pdf}}
-      \caption{A typical lineup plot ($m = 20$) for testing $H_0: \beta_1 = 0$. 
+       \scalebox{1}{\includegraphics{lineup-dot.pdf}}
+      \caption{A typical lineup plot ($m = 20$) for testing $H_0: \mu_1 =  \mu_2$. 
       % \qquad vs \qquad H_a: \beta_1 \ne 0$
-      When the alternative hypothesis is true the observed plot should have the steepest slope. Can you identify the observed plot?}
+      When the alternative hypothesis is true the observed plot should have the largest vertical difference between the centers. Can you identify the observed plot?}
       \label{lineup}
 %	\vspace{-.1in}
 \end{figure}
 
-Plot 8 is the plot of the real data. If the viewer could identify the plot then we have reasons to believe that there exists a statistically significant linear relationship between $X$ and $Y$. So the lineup protocol is the basis of the visual inference while the Rorschach protocol helps viewer understand the extent of randomness. \\
+Plot 16 is the plot of the real data. If the viewer could identify the plot then we have reasons to believe that there exists a statistically significant difference between the mean concentration levels in site A and site B. So the lineup protocol is the basis of the visual inference while the Rorschach protocol helps viewer understand the extent of randomness. \\
 
-Later in 2010, Majumder [2010] did a comparative study between the visual inference method and the classical inference methods by comparing the expected power of the visual test and the power of the UMP test. They showed that the expected power of a visual test is almost as good as the power of UMP test. They established properties and efficacy of visual testing procedures in order to use them in situations where traditional test cannot be used. Majumder [2010] in their paper have this stunning table (Table \ref{tbl:compare}) which describes the comparison of visual inference technique with the existing inference technique very efficiently. 
+Later in 2010, \cite{majumder:2010} did a comparative study between the visual inference method and the classical inference methods by comparing the expected power of the visual test and the power of the UMP test. They showed that the expected power of a visual test is almost as good as the power of UMP test. They established properties and efficacy of visual testing procedures in order to use them in situations where traditional test cannot be used. \cite{majumder:2010} in their paper have this stunning table (Table \ref{tbl:compare}) which describes the comparison of visual inference technique with the existing inference technique very efficiently. 
 
-\newpage
+%\newpage
 
 \begin{table*}[hbtp]
 \caption{Comparison of visual inference with existing inference technique}
@@ -173,21 +171,45 @@ Later in 2010, Majumder [2010] did a comparative study between the visual infere
 \hline
   & Mathematical Inference &  Visual Inference \\ %[0.5ex] % inserts table %heading 
 \hline
-  Hypothesis & $H_0: \beta=0$ vs $H_a: \beta \ne 0$& $H_0: \beta=0$ vs $H_a: \beta \ne 0$\\
+  Hypothesis & $H_0: \mu_1= \mu_2$ vs $H_a: \mu_1 \ne \mu_2$& $H_0: \mu_1 = \mu_2$ vs $H_a: \mu_1 \ne \mu_2$\\
 %  \vspace{0.5cm}	
- & \begin{minipage}[h]{1.5cm} \begin{center} \scalebox{0.25}{\includegraphics{down_arrow.pdf}} \end{center} \end{minipage} & \begin{minipage}[h]{1.5cm} \begin{center} \scalebox{0.25}{\includegraphics{down_arrow.pdf}} \end{center} \end{minipage} \\
+ & \begin{minipage}[h]{1.5cm} \begin{center} \scalebox{0.35}{\includegraphics{down_arrow.pdf}} \end{center} \end{minipage} & \begin{minipage}[h]{1.5cm} \begin{center} \scalebox{0.35}{\includegraphics{down_arrow.pdf}} \end{center} \end{minipage} \\
 %\vspace{0.5cm}				  
- Test statistic & $T(y)=\frac{\hat{\beta}}{se(\hat{\beta})}$ & $T(y)=$ \begin{minipage}[h]{1cm} \begin{center} \scalebox{0.12}{\includegraphics{test-plot.pdf}} \end{center} \end{minipage} \\
+ Test statistic & $T(y)=\frac{\bar{y}_1 - \bar{y}_2}{s\sqrt{\frac{1}{n_1} + \frac{1}{n_2}}}$ & $T(y)=$ \begin{minipage}[h]{1cm} \begin{center} \scalebox{0.2}{\includegraphics{data-dot.pdf}} \end{center} \end{minipage} \\
 				 
- & \begin{minipage}[h]{1.5cm} \begin{center} \scalebox{0.25}{\includegraphics{down_arrow.pdf}} \end{center} \end{minipage} & \begin{minipage}[h]{1.5cm} \begin{center} \scalebox{0.25}{\includegraphics{down_arrow.pdf}} \end{center} \end{minipage} \\
+ & \begin{minipage}[h]{1.5cm} \begin{center} \scalebox{0.35}{\includegraphics{down_arrow.pdf}} \end{center} \end{minipage} & \begin{minipage}[h]{1.5cm} \begin{center} \scalebox{0.35}{\includegraphics{down_arrow.pdf}} \end{center} \end{minipage} \\
 				 
- Null Distribution & $f_{T(y)}(t); $\begin{minipage}[h]{1.5cm} \begin{center} \scalebox{0.12}{\includegraphics{stat_mathematical_test.pdf}} \end{center} \end{minipage} & $f_{T(y)}(t); $ \begin{minipage}[h]{1.5cm} \begin{center} \scalebox{0.19}{\includegraphics{stat-lineup.pdf}} \end{center} \end{minipage} \\
- & \begin{minipage}[h]{1.5cm} \begin{center} \scalebox{0.25}{\includegraphics{down_arrow.pdf}} \end{center} \end{minipage} & \begin{minipage}[h]{1.5cm} \begin{center} \scalebox{0.25}{\includegraphics{down_arrow.pdf}} \end{center} \end{minipage} \\
+ Null Distribution & $f_{T(y)}(t); $\begin{minipage}[h]{1.5cm} \begin{center} \scalebox{0.2}{\includegraphics{stat_mathematical_test.pdf}} \end{center} \end{minipage} & $f_{T(y)}(t); $ \begin{minipage}[h]{1.5cm} \begin{center} \scalebox{0.29}{\includegraphics{lineup-dot.pdf}} \end{center} \end{minipage} \\
+ & \begin{minipage}[h]{1.5cm} \begin{center} \scalebox{0.35}{\includegraphics{down_arrow.pdf}} \end{center} \end{minipage} & \begin{minipage}[h]{1.5cm} \begin{center} \scalebox{0.35}{\includegraphics{down_arrow.pdf}} \end{center} \end{minipage} \\
  Reject $H_0$ if & observed $T$ is extreme & observed plot is identifiable \\
 \hline 
 \end{tabular}
 \label{tbl:compare}
 \end{table*}	
+
+%\begin{table*}[hbtp]
+%\caption{Comparison of visual inference with existing inference technique}
+%\centering 
+%\begin{tabular}{llll} 
+%\hline
+%  & Mathematical Inference &  Visual Inference \\ %[0.5ex] % inserts table %heading 
+%\hline
+%  Hypothesis & $H_0: \beta=0$ vs $H_a: \beta \ne 0$& $H_0: \beta=0$ vs $H_a: \beta \ne 0$\\
+%%  \vspace{0.5cm}	
+% & \begin{minipage}[h]{1.5cm} \begin{center} \scalebox{0.25}{\includegraphics{down_arrow.pdf}} \end{center} \end{minipage} & \begin{minipage}[h]{1.5cm} \begin{center} \scalebox{0.25}{\includegraphics{down_arrow.pdf}} \end{center} \end{minipage} \\
+%%\vspace{0.5cm}				  
+% Test statistic & $T(y)=\frac{\hat{\beta}}{se(\hat{\beta})}$ & $T(y)=$ \begin{minipage}[h]{1cm} \begin{center} \scalebox{0.12}{\includegraphics{test-plot.pdf}} \end{center} \end{minipage} \\
+%				 
+% & \begin{minipage}[h]{1.5cm} \begin{center} \scalebox{0.25}{\includegraphics{down_arrow.pdf}} \end{center} \end{minipage} & \begin{minipage}[h]{1.5cm} \begin{center} \scalebox{0.25}{\includegraphics{down_arrow.pdf}} \end{center} \end{minipage} \\
+%				 
+% Null Distribution & $f_{T(y)}(t); $\begin{minipage}[h]{1.5cm} \begin{center} \scalebox{0.12}{\includegraphics{stat_mathematical_test.pdf}} \end{center} \end{minipage} & $f_{T(y)}(t); $ \begin{minipage}[h]{1.5cm} \begin{center} \scalebox{0.19}{\includegraphics{stat-lineup.pdf}} \end{center} \end{minipage} \\
+% & \begin{minipage}[h]{1.5cm} \begin{center} \scalebox{0.25}{\includegraphics{down_arrow.pdf}} \end{center} \end{minipage} & \begin{minipage}[h]{1.5cm} \begin{center} \scalebox{0.25}{\includegraphics{down_arrow.pdf}} \end{center} \end{minipage} \\
+% Reject $H_0$ if & observed $T$ is extreme & observed plot is identifiable \\
+%\hline 
+%\end{tabular}
+%\label{tbl:compare}
+%\end{table*}	
+
 
 %In their paper \citet{buja:2009} presented some of the issues related to visual inference. For example the wording of the instruction for viewers while evaluating lineup plots, information related to the viewers responses, effect of colors or gaps in the plot on the responses. These issues need to be examined before more general implementation of visual inference. In my thesis work I intend to address these issues elaborately.
 
@@ -195,20 +217,19 @@ Later in 2010, Majumder [2010] did a comparative study between the visual infere
 %
 %The type-I error probability is fixed to be $\frac1m$ as per the design of the lineup plot.
 
-\section{Scope of my reasearch}
+\section{Scope of my research}
 
-The main goal of my research is to analyze the performance of lineup protocol in various situations in finding any pattern in the data if it is actually present. My research also looks into other details and develops certain concepts in the lineup protocol. These are described below:\\
+The main goal of my research is to analyze the performance of lineup protocol in various situations in finding any pattern in the data if it is actually present. My research also looks into other details and develops certain concepts in the lineup protocol. These are described below: \\
 
-Chapter \ref{ch:largepsmalln} is an application of the lineup protocol in a large p, small n framework. In this chapter we examine the reliability of projection pursuit methods. This chapter also provides a check on whether the separation among the groups is real or caused solely by the large number of dimensions. \\
+Chapter \ref{ch:largepsmalln} is an application of the lineup protocol in a large $p$, small $n$ framework. In this chapter we examine the reliability of projection pursuit methods. This chapter also provides a check on whether the separation among the groups is real or caused solely by the large number of dimensions. There are various cases when we observe separated clusters when we plot 2 dimensional projections of a $p$ dimensional data when $p$ is large compared to $n$. But the important question `Is the separation real?' We tried to answer this question in this chapter. \\
 
-Chapter \ref{ch:waldo} takes a closer look at the null plots in a lineup. This chapter develops techniques to measure the quality of a lineup. This chapter also finds a distance measure which is the closest to the visual distance. \\
+Chapter \ref{ch:waldo} takes a closer look at the null plots in a lineup. This chapter develops techniques to measure the quality of a lineup. This chapter also finds a distance measure which is the closest to the visual distance. In a lineup we compare the plot of the real data to the null plots. But since there are only a finite number of null plots we may obtain a ``bad" sample of plots. So we need to be aware of the properties of the null plots. \\
 
-Chapter \ref{ch:teaching} develops teaching materials to teach visual inference to undergraduate students.  \\
+Chapter \ref{ch:teaching} develops teaching materials to improve statistical thinking among undergraduate students and among people who are familiar with statistical methods. \\ 
 
-Chapter \ref{ch:application} uses the lineup protocol to make inference in a large $n$ setting. The goal is to examine how the visual inference procedure works in a real life situation. This chapter also looks at the ``sufficient'' statistic. \\
+Chapter \ref{ch:application} would most likely use the lineup protocol to make inference in a large $n$ setting. The goal is to examine how the visual inference procedure works in a real life situation. This chapter also looks at the ``sufficient'' statistic. \\
 
-Finally, chapter \ref{ch:conclusion} displays my completed tasks so far as well as the plans and timelines of my work for the next year. Some of the future directions of research are also described even though they may not be under the scope of this dissertation work.
-
+Finally, chapter \ref{ch:conclusion} displays my completed tasks so far as well as the plans and timelines of my work for the next year. 
 
 %\section{Validation of the Protocols}
 %
@@ -237,7 +258,13 @@ Finally, chapter \ref{ch:conclusion} displays my completed tasks so far as well 
 % ================ chapter 2 starts here  ==========================
 
 \chapter{Visual Statistical Inference for Large p, Small n Data}\label{ch:largepsmalln}
+\vspace{-0.8cm}
+\large{Niladri Roy Chowdhury, Dianne Cook, Heike Hofmann, Mahbubul Majumder}\\ \\
+\large{This paper was presented in Joint Statistical Meetings 2011 and is submitted in JSM Proceedings 2011.} 
 
+\vspace{1cm}
+
+\normalsize
 
 Statistical graphics plays an important role in exploratory data analysis, model checking and diagnosis. Recently there were some formal visual methods for determining statistical significance of findings. We often seek to low-dimensional projections in high dimensional data which reveal important aspects of the data. Projection pursuit for classification finds projections that reveal differences between classes. In this paper we are interested in the performance of classification methods when the number of observations is relatively small compared to the number of variables, known as a large $p$ (dimension) small $n$ (sample size) problem using visual statistical inference. We apply projection pursuit for classification to pure noise data and to the data when there is some separation. We use the lineup protocol \cite{buja:2009} to make comparisons among the pure noise data and the data which has some separation.
 
@@ -250,9 +277,9 @@ In recent times there have been major advances in statistical graphics. Modern c
 
 In this paper we used the idea of projection pursuit by Friedman and Tukey [1974]. Projection pursuit is a statistical tool to find the most interesting projections from high dimensional to low dimensional space that reveals the most details about the structure of the data. In this paper we mainly use the one and two dimensional projections obtained by projection pursuit on higher dimensions.
 
-In this paper we use the \texttt{tourr} package in \texttt{R} \cite{r} . %by \citeasnoun{WC08}. 
+In this paper we use the \texttt{tourr} package in \texttt{R} \cite{r} by \cite{WC08}. 
 
-The \texttt{tourr} package produces tours of multivariate data. The package also includes functions for creating different types of tours like grand, guided and little tours, which project multivariate data with $p$ dimensions to 1, 2, 3 or $d$ dimensions where $d \le p$. In this paper we mainly use the guided tour function which instead of picking a new projection completely at random, it picks projections that are closer to the current projection, so that we eventually converge to a single maximally interesting projection. The \texttt{tourr} package comes with 4 indices but we use the PDA (Penalized Discriminant Analysis)  index described in Lee et. al.      
+The \texttt{tourr} package produces tours of multivariate data. The package also includes functions for creating different types of tours like grand, guided and little tours, which project multivariate data with $p$ dimensions to 1, 2, 3 or $d$ dimensions where $d \le p$. In this paper we mainly use the guided tour function which instead of picking a new projection completely at random, it picks projections that are closer to the current projection, so that we eventually converge to a single maximally interesting projection. The \texttt{tourr} package comes with 4 indices but we use the PDA (Penalized Discriminant Analysis)  index described in \cite{lee:2009}.      
 
 In this paper we check the projection pursuit optimization on pure noise with no real separation by using statistical graphics in Section \ref{sec:largep}. We also check the PP optimization on dimensions with some real separation and present results. In Section  \ref{sec:distance} we are also concerned about how the distance between the means increase with $p$ for a fixed n. We also present a confidence interval for the number of dimensions at which the clusters starts to separate out for both one dimensional and two dimensional projections.
 
@@ -467,7 +494,15 @@ This work was funded by National Science Foundation grant DMS 1007697.
 
 %% =============Chapter 3 starts here===================== 
 
-\chapter{Where's Waldo: Looking closely at a Lineup} \label{ch:waldo} Graphics play a crucial role in statistical analysis and data mining. This paper describes developments to assist the use of graphics for making inferential statements. It examines the lineup protocol described in \citet{buja:2009}  
+\chapter{Where's Waldo: Looking closely at a Lineup} \label{ch:waldo}
+\vspace{-0.8cm}
+\large{Niladri Roy Chowdhury, Heike Hofmann, Dianne Cook, Mahbubul Majumder, Yifan Zhao}\\ \\
+\large{This paper won the Student Paper Award in Section on Statistical Graphics and will be presented in Joint Statistical Meetings 2012. } 
+
+%\maketitle
+\vspace{1cm}
+\normalsize
+ Graphics play a crucial role in statistical analysis and data mining. This paper describes developments to assist the use of graphics for making inferential statements. It examines the lineup protocol described in \citet{buja:2009}  
   developing numerical statistics to measure the quality of the lineup. Distance measures are developed that describe how close the observed data plot is to the null plots, and how close the null plots are to each other. These measures are compared with choices made by human judges, to decide on the best distance measures to use for particular plot types.
 
 \section{Introduction} 
@@ -565,11 +600,6 @@ h(P) := \sum_{i=1}^n I_{P(i) \neq i},  \text{ where } I_{x} = \left \{
 \]
 i.e. $h(P)$ is a count of the number of fix elements of the function.
 
-\item Euclidean Distance of permutations: The Euclidean distance of permutations $P$ is 
-\[
-d^2_P(X) = \sum_{i=1}^n ( i - P(i))^2.
-\]
-where $i = \{1, 2, ..., n\}$
 
 %\blue{
 %The hamming distance $H$ of $P$ is defined as 
@@ -596,6 +626,14 @@ This distance matrix measures the distance between the permutation matrix and th
 %}
 
 
+\item Euclidean Distance of actual values: 
+Let $X$ be a continuous variable. The Euclidean Distance under permutation is then defined as 
+%\red{we need a good short-cut for this distance}
+\[
+d^2_V(X) := || X - [P]X||^2 = \sum_{i=1}^n (X_i - X_{P(i)})^2.
+\]
+
+
 
 
 
@@ -610,8 +648,6 @@ b^2_P(X) &:=& ||C(X,Y) - C(X,[P]Y)||^2 \\ &=& \sum_{i=1}^p \sum_{j=1}^q (C_{X_i,
 \end{eqnarray*}
 
 The usual convention is to take the number of bins equal to the square root of the number of observations. So we take $p = q = \lceil{\sqrt{n}} \rceil$ where $\lceil{x} \rceil$ is the smallest integer greater than or equal to $x$. \\
-
-The usual convention is to take the number of bins equal to the square root of the number of observations. So we take $p = q = \lceil {\sqrt{n}}\rceil$ where $\lceil {x}\rceil$ is the smallest integer greater than or equal to $x$. \\
 
 Binned distance is highly susceptible to small differences in values and depends on the number of bins as well as exact cut-offs. This is particularly problematic for small number of points. As a remedy to that, we are considering Weighted bin distance next, which is based on the density rather than point frequency. For large number of points the weighted binning is computationally too intensive, in which case we will make use of the unweighted  binned distance.
 %\red{careful: $C(X,[P]Y)$ is not the same as $C_{i,P(j)}$. $C_{i,j}$ is the count for points falling into cell $i,j$ - it's not enough to permute the grid counts, we need to get the grid counts of the permuted variable. Introduce $C$ as a function of $X$ and $Y$ ....}
@@ -1125,15 +1161,16 @@ In Figure \ref{toth_lineup} we can see that the clusters are separated even afte
 
 \section{Distance measures}
 
+We looked at some of the other distance measures. Our goal now is to find a distance measure which best represents the visual distance.
+
 \begin{itemize}
 
-\item Euclidean Distance of actual values: 
-Let $X$ be a continuous variable. The Euclidean Distance under permutation is then defined as 
-%\red{we need a good short-cut for this distance}
-\[
-d^2_V(X) := || X - [P]X||^2 = \sum_{i=1}^n (X_i - X_{P(i)})^2.
-\]
 
+\item Euclidean Distance of permutations: The Euclidean distance of permutations $P$ is 
+\[
+d^2_P(X) = \sum_{i=1}^n ( i - P(i))^2.
+\]
+where $i = \{1, 2, ..., n\}$
 
 
 \item Canberra Distance: Using exactly the same setup as the binned distance , the canberra distance under permutation is defined as
@@ -1358,7 +1395,7 @@ where
  \begin{figure}[ht]
 %\begin{figurehere}
    \centering
-       \scalebox{0.38}{\includegraphics{data4.pdf}}
+       \scalebox{0.35}{\includegraphics{data4.pdf}}
 %      \scalebox{0.3}{\includegraphics{data1_30_5_1.pdf}}
 %       \scalebox{0.3}{\includegraphics{data1_50_5_1.pdf}}
        \caption{One typical example of dataset 4.}
@@ -1366,7 +1403,7 @@ where
 %	\vspace{-.1in}
 \end{figure}   
 
-
+\newpage
 
 \section{Plans and Time Line}
 
@@ -1386,7 +1423,7 @@ Pilot Study & 1st pilot study to examine the performance of projection pursuit. 
 Talk & Presented the results of Chapter 2 in Joint Statistical Meetings, Miami Florida \vspace{.1in} & July 2011 \\
 Paper & The paper titled ``Where's Waldo: Looking closely at a Lineup" submitted to ASA and won student paper award 2012 \vspace{.1in} & Dec 2011 \\
 
-Developments in Chapter 2 & A method introduced to find a distance measure which works best as a visual distance \vspace{.1in} & April 2012\\
+Developments in Chapter 3 & A method introduced to find a distance measure which works best as a visual distance \vspace{.1in} & April 2012\\
 \hline
 \end{tabular}
 \label{tbl:cjob}
@@ -1401,12 +1438,12 @@ Developments in Chapter 2 & A method introduced to find a distance measure which
 \hline
 Task &  Description & Status date\\ %[0.5ex] % inserts table %heading 
 \hline
-Chapter 3 & I will develop the teaching materials in Chapter 3 during the summer. I have made some materials for my Stat 226 class for Spring 2011 and only 20\% work is complete\vspace{.1in} & July 2012 \\
+Chapter 4 & I will develop the teaching materials in Chapter 4 during the summer. I have made some materials for my Stat 226 class for Spring 2011 and only 20\% work is complete\vspace{.1in} & July 2012 \\
 Talk & Present the paper that won the ASA student paper award 2012 in JSM \vspace{.1in} & Aug 2012\\
 Turk Experiment & The first turk experiment to examine which distance measure among a selected set works closest to the visual distance  \vspace{.1in}& Sep 2012 \\
 Paper & The paper based on Large p, small n materials \vspace{.1in} & Oct 2012 \\
 R Package  & Based on the results of the turk experiment, R package to provide measure of the quality of a lineup.  \vspace{.1in} & Nov 2012\\
-Paper & The paper based on the analysis of turk data and Chapter 2 materials. \vspace{.1in} & Dec 2012\\
+Paper & The paper based on the analysis of turk data and Chapter 3 materials. \vspace{.1in} & Dec 2012\\
 Work on Real dataset & Start working on analysis of Large Datasets using visual inference \vspace{.1in}  & Mar 2013\\ 
 Thesis defense & Planned thesis defense \vspace{.1in} & May 2013\\
 %Paper & Paper based on the real data analysis and implementation of visual inference technique with medical data from summer internship with Novartis \vspace{.1in} & May 2012\\
