@@ -16,7 +16,7 @@ There have been major advances in statistical graphics over the years, for examp
 potentially changes this. 
 
 The lineup protocol in \citep{buja:2009} 
-places a statistical plot firmly in the hypothesis testing framework. The plot of the data is considered to be a test statistic, and this plot is compared with plots from the appropriate null distribution, producing the lineup. Plots from the null distribution can be generated in many ways, depending on the specification of the null. For parametric testing, data can be simulated from a statistical distribution. For non-parametric testing, other data generating mechanisms may be implied. For example in a lineup using scatterplots, where the null hypothesis is no association between the two variables,  a null generating mechanism is to permute one column of numbers. The marginal distributions of the two variables stay the same while any association between the variables is broken. 
+places a statistical plot firmly in the hypothesis testing framework. The plot of the data is considered to be a test statistic, and this plot is compared with plots from the appropriate null distribution, producing the lineup. Plots from the null distribution can be generated in many ways, depending on the specification of the null. For parametric testing, data can be simulated from a statistical distribution. For non-parametric testing, other data generating mechanisms may be implied. For example in a lineup using scatterplots, where the null hypothesis is no association between the two variables,  a null generating mechanism is to permute one column of numbers. The marginal distributions of the two variables stay the same while any association between the variables is broken. For more details, see \cite{GOOD05}.
 
 The lineup protocol is analogous to the statistical significance calculations in traditional statistical tests. In hypothesis testing, the observed value of the test statistic is compared with all possible values of its null distribution. If the statistic is extreme on this scale, there is evidence to disbelieve the null hypothesis. With the lineup protocol, for a data plot to be considered to be extreme, a human judge must pick it as different from the other plots in the lineup. 
 
@@ -72,7 +72,7 @@ To avoid basing conclusions on artifacts introduced by a `bad' sample, we need t
 %The difference between a regular permutation test and a graphical test under the line-up protocol, is that we are comparing the observed value of the test statistics (i.e. the plot of the observed data) to a finite sample of the sample distribution.
 
 
-\section{Distance measures}\label{defn.distance}
+\section{Distance Measures}\label{defn.distance}
 
 %\blue{The difference between a regular permutation test and a graphical test under the line-up protocol, is that we are comparing the observed value of the test statistics (i.e. the plot of the original data) to a finite sample of the sample distribution. As Tukey suggested, `there is such a thing as a bad random sample' \citet{fernholz03}:
 %\begin{quotation}
@@ -88,7 +88,7 @@ To avoid basing conclusions on artifacts introduced by a `bad' sample, we need t
 %
 %\red{Another thing that we should discuss on Friday is whether it might be better to call the measures we use norms rather than distances - a distance usually assumes the comparison of two objects, and we implicitly compare against null or identity, which is what a norm does..}
 
-There are different types of distance measures suitable in measuring the distance between the permuted variable and the original variable. In this paper we used eleven different types of distance measures so that they can identify the different characteristics present in a plot. \\
+There are different types of distance measures suitable in measuring the distance between the permuted variable and the original variable. In this paper we used six different types of distance measures so that they can identify the different characteristics present in a plot. \\
 
 For all of the distance measures below, let $P$ be a permutation mapping  the set $\{1, 2, ..., n\}$ onto itself. Let further $[P]$ denote the $n \times n$ matrix associated to permutation $P$.
 
@@ -261,7 +261,7 @@ $\rho$ uses both the variables.
 %\label{dot_table}
 %\end{table*}
 
-\section{People's pick method}\label{user.distance}
+\section{People's Pick Method}\label{user.distance}
 
 To explore how well the various distance measures matched visual characteristics of the lineup,  we conducted a human subject's experiment. For the scatterplot example, each participant was given 5 lineups similar to that in Figure \ref{sca_1}. The participant was asked (1) which of the plots exhibited the strongest positive association between the variables, and then after revealing the location of the observed data plot,  (2) the participants were asked to identify the plots that looked the most similar to the observed data plot. There were 15 participants.  It is the second evaluation, on the closeness of the null plots to observed data plot, that we focused on. Most people provided 2-3 closeness picks.  Because we didn't specifically request participants to order their closeness picks, we combined the picks, putting more emphasis if the plot was listed as the first or second, than if they were of the second or third choices:
 
@@ -320,7 +320,7 @@ where $p_{1,2}$ is the proportion of participants listing the plot  in the first
 %}
 
 
-\section{Example, using scatterplots} \label{sec:asso}
+\section{Example, using Scatterplots} \label{sec:asso}
 
 Consider a dataset with two continuous variables $X$ and $Y$. 
 %Let us assume that one variable is the explanatory or independent variable ($X$) and the other variable is the response or dependent variable ($Y$). 
