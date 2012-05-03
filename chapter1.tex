@@ -37,43 +37,46 @@ We may have three different types of alternative hypotheses against the null hyp
 \noindent where $\mu_0$ is some pre-specified value that we assume holds true under $H_0$. The first two alternative hypotheses are known as one-sided alternatives and the third one is known as two-sided alternative. Also $H_0$ and $H_a$ should always contradict each other, and jointly cover the population parameter space.
 
 Let us assume that we want to test $$H_0: \mu = \mu_0 \qquad \hbox{vs} \qquad H_a: \mu > \mu_0$$
-Now based on the sample we have in hand, we calculate the appropriate sample statistic. So in this case we calculate the sample mean $\bar{x}$ and standard deviation $s$ from sample of size $n$. If $H_a$ is indeed true, we should expect $\bar{x}$ to be greater than $\mu_0$. Then the question of interest is how much greater than $\mu_0$ should $\bar{x}$ be before we start doubting the null hypothesis. In other words, is the value of $\bar{x}$ unusually large if it is really true that $H_0: \mu = \mu_0$. If the answer is yes, then that would be evidence against $H_0$ in favor of $H_a$. To assess how unusual or unlikely our value of $\bar{x}$ is we need to know something about how it might vary from one sample to another if $H_0$ were really true.  (\cite{kutner:2005} provides extensive explanations of these ideas.)
+Now based on the sample we have in hand, we calculate the appropriate sample statistic. So in this case we calculate the sample mean $\bar{x}$ and standard deviation $s$ from sample of size $n$. If $H_a$ is indeed true, we should expect $\bar{x}$ to be greater than $\mu_0$. Then the question of interest is how much greater than $\mu_0$ should $\bar{x}$ be before we start doubting the null hypothesis. In other words, is the value of $\bar{x}$ unusually large if it is really true that $H_0: \mu = \mu_0$. If the answer is yes, then that would be evidence against $H_0$ in favor of $H_a$. To assess how unusual or unlikely our value of $\bar{x}$ is we need to know something about how the statistic, $\bar{X}$, might vary from one sample to another if $H_0$ were really true.  (\cite{kutner:2005} provides extensive explanations of these ideas.)
 
 Assuming that the sample comes from a normal population or the sample size is large enough so that the sampling distribution of $\bar{X}$ is approximately normal, the standardized score or the test statistic under $H_0$, also known as the $t$-score is given by
 $$t = \frac{\bar{X} - \mu_0}{S/\sqrt{n}}$$
-Under $H_0$, $t$ follows a $t$ distribution with $n - 1$ degrees of freedom.
+Under $H_0$, $t$ follows a $t_{n-1}$ distribution. From this model we can determine the probability of observing that particular value of $t$ or something bigger, which is called the $p$-value. (See, for example, \cite{moore:2009}.) If it is small then it is pretty unlikely, which is evidence against $H_0$, which would lead us to believe that the sample comes from a distribution where $\mu>\mu_0$, that is, $H_a$. This is considered to be rejecting the null hypothesis.
 
-In general we can write a test statistic for any population parameter as 
+More generally we can write the test statistic for any population parameter as 
 $$\frac{\hbox{sample estimate of parameter} - \hbox{hypothesized parameter value under }H_0 }{\hbox{standard error of the estimator}}$$ 
-Under different situations, the test statistic follows different distributions. If the observed value of the test statistic is extreme, we would have reasons to believe that the data comes from a population with population mean $\mu > \mu_0$. Automatically, the question arises how extreme can the test statistic be when we start believing the data comes from a population with population mean greater than $\mu_0$. 
+Under different situations, we would hope to be able to determine the distribution of this test statistic in order to compute the $p$-value. 
 
- Here we define something that is typically known as Type I error or the level of significance. The level of significance, denoted by $\alpha$ corresponds to the error rate that we allow ourselves saying that in 100$\alpha$ \% of all decisions we will make the wrong decision, i.e. we will reject the null hypothesis $H_0$ when in fact $H_0$ is true. 
+The next step is the definition of how small is small. This is determined by the level of significance, $\alpha$, also called the Type I error. It is the controlled error, the probability that we are wrong in rejecting $H_0$ when $H_0$ is really true. The value of $\alpha$ is set to a level that we are willing to risk being wrong, typically 0.05, but sometimes 0.1 or 0.01, or even lower. Deciding whether the $p$-value is small corresponds comparing it with $\alpha$:
  
- Hence we look at the value of 100(1 - $\alpha$) percentile of t distribution with the appropriate degrees of freedom and if the observed value is greater than the value, we reject $H_0$, otherwise we fail to reject $H_a$. So
- \begin{itemize}
- \item Reject $H_0$ if $t_{\hbox{obs}} > t_{1 - \alpha}$
- \item Fail to reject $H_0$ if $t_{\hbox{obs}} < t_{1 - \alpha}$
- \end{itemize}
-Similarly for a two sided alternative, we have 
-  \begin{itemize}
- \item Reject $H_0$ if $|t_{\hbox{obs}}| > t_{1 - \alpha/2}$
- \item Fail to reject $H_0$ if $|t_{\hbox{obs}}| < t_{1 - \alpha/2}$
- \end{itemize}
- We may also make the decision based on so-called p-value. As defined in \cite{moore:2009}, the p-value is defined as the probability of getting a value at least as unusual as the observed sample statistic assuming that $H_0$ is true. Hence the p-value measures evidence against $H_0$. The smaller the p-value the stronger the evidence is against the null hypothesis $H_0$ and in favor of $H_a$. As previously discussed, the p-value is compared to the level of significance $\alpha$ to make the decisions.
-  \begin{itemize}
- \item Reject $H_0$ if p-value $<$ $\alpha$
- \item Fail to reject $H_0$ if p-value $>$ $\alpha$
- \end{itemize}
- Type I error or the level of significance, denoted by $\alpha$, is the probability of rejecting the null hypothesis $H_0$ when $H_0$ is true. Type II error, denoted by $\beta$ is the probability of failing to reject the null hypothesis $H_0$ when $H_0$ is false. Type I error is committed in a jury trial when there is ``no guilty'', a person is convicted as ``guilty''. This is a serious mistake as an innocent person is convicted. Type II error is committed when there is a ``guilty'' but he was not convicted. The power of a statistical test is defined as the probability of rejecting the null hypothesis $H_0$ when $H_0$ is false and is denoted by 1 $-$ $\beta$. \\
- 
-More generally, let $\theta$ be a population parameter of interest, with $\theta$ $\in$ $\Theta$, the parameter space. Any null hypothesis $H_0$ then partitions the parameter space into $\Theta_0$ and $\Theta_0^c$ with $H_0: \theta \in \Theta_0$ versus $H_a: \theta  \in \Theta_0^c$ as defined in \cite{casella:2002}. \\
-
-Let $\chi$ be the set of all possible values of $\mathbf{X} = (X_1, \dots, X_n)$. Then a test function or a test rule $\phi(X_1, \dots, X_n)$ is a function from $\chi$ into [0, 1] with the interpretation that if $\mathbf{X} = (X_1, \dots, X_n)$ is observed then $H_0$ is rejected with probability $\phi( \mathbf{X})$. Hence the following definitions:
-\begin{itemize}
-\item Probability of Type I error at $\theta \in \Theta_0$ is $E_{\theta} \phi(\mathbf{X})$. 
-\item Probability of Type II error at $\theta \in \Theta_0^c$ is $1 - E_{\theta} \phi(\mathbf{X})$. \item Size or the level of the test function $\phi(\mathbf{X})$ is given by $\max_{\theta \in \Theta_0} E_{\theta} \phi(\mathbf{X}) $.
-\item Power function of $ \phi(\mathbf{X})$ is given by $\Pi_{\phi}(\theta) = E_{\theta} \phi(\mathbf{X})$.
+\begin{itemize} \itemsep 0in
+\item Reject $H_0$ if $p$-value $<$ $\alpha$
+\item Fail to reject $H_0$ if $p$-value $>$ $\alpha$
 \end{itemize}
+
+Equivalently we can also decide to reject or fail to reject $H_0$ by first determining the 100(1 - $\alpha$) percentile value of $t_{n-1}$ distribution, called the critical value, $t_{n-1}(\alpha)$. This is compared to the observed value of the test statistic, $t$, leading to the decision criteria being:
+
+\begin{itemize} \itemsep 0in
+\item Reject $H_0$ if $t > t_{n-1}(\alpha)$
+\item Fail to reject $H_0$ if $t < t_{n-1}(\alpha)$
+\end{itemize}
+
+Different alternative hypothesis require slightly different comparisons. The two-sided alternative, $H_a: \mu \ne \mu_0$, requires using: 
+  \begin{itemize}
+ \item Reject $H_0$ if $|t| > t_{n-1}(\alpha)$
+ \item Fail to reject $H_0$ if $|t| < t_{n-1}(\alpha)$
+ \end{itemize}
+
+Type I error, is the probability of rejecting the null hypothesis $H_0$ when $H_0$ is true. Type II error, denoted by $\beta$ is the probability of failing to reject the null hypothesis $H_0$ when $H_0$ is false. Type I error is committed in a jury trial when it is decided that a not guilty person is  ``guilty''. This is a serious mistake as an innocent person is punished. Type II error is committed when there is a guilty person is not convicted, not considered to be so serious. The power of a statistical test is defined as the probability of correctly rejecting $H_0$ when $H_0$ is false and is usually denoted by $\beta$. (\cite{casella:2002} and \cite{lehman:1997} give more thorough treatments of hypothesis testing.)
+ 
+%More generally, let $\theta$ be a population parameter of interest, with $\theta$ $\in$ $\Theta$, the parameter space. Any null hypothesis $H_0$ then partitions the parameter space into $\Theta_0$ and $\Theta_0^c$ with $H_0: \theta \in \Theta_0$ versus $H_a: \theta  \in \Theta_0^c$ as defined in \cite{casella:2002}. \\
+
+%Let $\chi$ be the set of all possible values of $\mathbf{X} = (X_1, \dots, X_n)$. Then a test function or a test rule $\phi(X_1, \dots, X_n)$ is a function from $\chi$ into [0, 1] with the interpretation that if $\mathbf{X} = (X_1, \dots, X_n)$ is observed then $H_0$ is rejected with probability $\phi( \mathbf{X})$. Hence the following definitions:
+%\begin{itemize}
+%\item Probability of Type I error at $\theta \in \Theta_0$ is $E_{\theta} \phi(\mathbf{X})$. 
+%\item Probability of Type II error at $\theta \in \Theta_0^c$ is $1 - E_{\theta} \phi(\mathbf{X})$. \item Size or the level of the test function $\phi(\mathbf{X})$ is given by $\max_{\theta \in \Theta_0} E_{\theta} \phi(\mathbf{X}) $.
+%\item Power function of $ \phi(\mathbf{X})$ is given by $\Pi_{\phi}(\theta) = E_{\theta} \phi(\mathbf{X})$.
+%\end{itemize}
 
 
 \section{Introduction to Visual Inference} \citet{buja:2009} proposes visual statistical methods with an inferential framework. In visual inference the plots take on the role of test statistics, the test statistic is not a real number anymore. Assuming that the null hypothesis is true, several other plots are generated. These plots, known as the null plots gives the ``null distribution of plots'' analogous to the null distribution of test statistics. Though the null distribution is infinite i.e. conceptually we may have an infinite collection of plots of `null datasets', in practice we sample a finite number of null datasets and generate a gallery of null plots. The observed plot, which is the test statistic, is presented along with the null plots to several viewers. If the observed plot show a specific pattern not seen in the null plots, we will have reasons to believe that the observed plot may not have come from the null distribution. Hence if the viewer correctly identifies the observed plot , the decision is to reject the null hypothesis. To formalize the process of visual discovery the paper proposes two protocols described in the next section. As they said in their paper, each of the protocols helps to quantify the strength of signal versus noise similar to numerical hypothesis testing. 
