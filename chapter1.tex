@@ -5,7 +5,7 @@
 
 Plotting data has its origins long before the development of the classical inference procedures, and then developed alongside these methods. The first recorded instance of statistical graphics based on the data was known to be in the year 1644 (variations in determination of longitude between Toledo and Rome as illustrated by \cite{friendly:2001}). The development of inferential procedures started with Bernoulli (1700s) and gathered speed with Fisher (early 1900s) and has continued strongly through to present times \citep{hald:2004}. 
 
-The importance of statistical plots in statistical data analysis is widely understood. Model diagnosis and exploratory data analysis is predominantly dependent on statistical plots. \cite{cleveland:1984} began to formalize development of graphical methods with experiments in visual perception. \cite{hadley:2009}, building on ideas originating in \cite{wilkinson:1999}, developed and implemented a grammar of graphics which presents a structured way to generate specific graphics from data and helps to define connections between disparate types of plot. Statistical graphs has been widely used for going beyond the standard paradigms of estimation and testing, to look for patterns in data beyond the expected. As pointed out by \cite{gelman:2004}, improvements in technology has helped in the development of statistical graphics. Higher resolution graphics, more sophisticated user interfaces and accessible software such as R \citep{r} has made graphical methods to be more widely available.  The problem is, although we can explore and represent our findings using statistical graphics, it has been difficult to say that what we see is ``real''. 
+The importance of statistical plots in statistical data analysis is widely understood. Model diagnosis and exploratory data analysis is predominantly dependent on statistical plots. \cite{cleveland:1984} began to formalize development of graphical methods with experiments in visual perception. \cite{hadley:2009}, building on ideas originating in \cite{wilkinson:1999}, developed and implemented a grammar of graphics which presents a structured way to generate specific graphics from data and helps to define connections between disparate types of plot. Statistical graphs has been widely used for going beyond the standard paradigms of estimation and testing, to look for patterns in data beyond the expected. As pointed out by \cite{gelman:2004}, improvements in technology has helped in the development of statistical graphics. Higher resolution graphics, more sophisticated user interfaces and accessible software such as R \citep{r} has made graphical methods to be more widely available.  The problem is, although we can explore and represent our findings using statistical graphics, it has been difficult to say that what we see is ``real''. This thesis research helps to fill this void.
 
 % to look presentation of findings. The question is whether we can use this powerful tool, the statistical plots, to make statistical inference. This has been a open question until recently when \citet{buja:2009} presented formal structure of the visual inference procedure to detect the significant pattern in the data.
 
@@ -16,24 +16,28 @@ The importance of statistical plots in statistical data analysis is widely under
 
 \section{Review of Hypothesis Testing}
 
-Classical statistical inference can be broadly classified into two categories, namely Estimation and Testing of hypothesis. In testing of hypothesis we start out with a claim or belief about the population parameter. We need to verify the claim or belief based on whether our sample data matches the belief. In any test, there are two competing hypothesis. The null hypothesis denoted by $H_0$ is a statement of what we assume to be true which reflects the current condition about the population parameter. On the other hand, the alternative hypothesis, denoted by $H_a$ which is a statement against the null hypothesis $H_0$ is what we want to show. 
+Classical statistical inference can be broadly classified into two categories, namely estimation and testing of hypothesis. In testing of hypothesis we start out with a claim or belief about the population parameter. We need to verify the claim or belief based on whether our sample data matches the belief. In any test, there are two competing hypotheses. The null hypothesis denoted by $H_0$ is a statement of what we assume to be true which reflects the current condition about the population parameter. On the other hand, the alternative hypothesis, denoted by $H_a$ which is a statement against the null hypothesis $H_0$ is what we want to show. 
 
 The philosophy behind a statistical hypothesis is the same as in a jury trial. There are only two possibilities:
-\begin{itemize}
+
+\begin{itemize} \itemsep 0in
 \item ``not guilty'' corresponding to $H_0$
 \item ``guilty'' corresponding to $H_a$ 
 \end{itemize}
+
 Like in a jury trial the philosophy is ``innocent until proven guilty'', we assume $H_0$ is true until we have sufficient evidence in the data in favor of $H_a$. 
-We may have three different types of alternative hypotheses against the null hypothesis. Let us assume we want to test for a population mean $\mu$. So against the null hypothesis $H_0: \mu = \mu_0$, we may have
-\begin{itemize}
+We may have three different types of alternative hypotheses against the null hypothesis. Let us assume we want to test for a population mean $\mu$. So against the null hypothesis $H_0: \mu = \mu_0$, we may have three choices of alternatives:
+
+\begin{itemize} \itemsep 0in
 \item $H_a: \mu > \mu_0$
 \item $H_a: \mu < \mu_0$ 
 \item $H_a: \mu \ne \mu_0$
 \end{itemize}
-where $\mu_0$ is some pre-specified value that we assume holds true under $H_0$. The first two alternative hypotheses is known as one-sided alternatives and the third one is known as two-sided alternative. Also $H_0$ and $H_a$ should always contradict each other.
+
+\noindent where $\mu_0$ is some pre-specified value that we assume holds true under $H_0$. The first two alternative hypotheses are known as one-sided alternatives and the third one is known as two-sided alternative. Also $H_0$ and $H_a$ should always contradict each other, and jointly cover the population parameter space.
 
 Let us assume that we want to test $$H_0: \mu = \mu_0 \qquad \hbox{vs} \qquad H_a: \mu > \mu_0$$
-Now based on the sample we have in hand, we calculate the appropriate sample statistic. So in this case we calculate the sample mean $\bar{X}$ and $S$. If $H_a$ is indeed true, we should expect $\bar{X}$ to be greater than $\mu_0$. Then the question of interest is how much greater than $\mu_0$ should $\bar{X}$ be before we start doubting the null hypothesis. In other words, is a value of $\bar{X}$ unusually large if $H_0: \mu = \mu_0$ is supposed to be true. If the answer is yes, then that would be evidence against $H_0$ in favor of $H_a$. To assess how unusual or unlikely our data is and hence the corresponding sample mean, we may look where the estimate of the standardized score falls on the distribution under $H_0$.  For more details take a look at \cite{kutner:2005}.
+Now based on the sample we have in hand, we calculate the appropriate sample statistic. So in this case we calculate the sample mean $\bar{x}$ and $s$. If $H_a$ is indeed true, we should expect $\bar{x}$ to be greater than $\mu_0$. Then the question of interest is how much greater than $\mu_0$ should $\bar{x}$ be before we start doubting the null hypothesis. In other words, is the value of $\bar{x}$ unusually large if it is really true that $H_0: \mu = \mu_0$. If the answer is yes, then that would be evidence against $H_0$ in favor of $H_a$. To assess how unusual or unlikely our data is and hence the corresponding sample mean, we may look where the estimate of the test statistic, essentially a standaardized score, $\frac{\bar{x}-\mu_o}{s/\sqrt{n}}$ falls on the sampling distribution of this statistics, under $H_0$.  (\cite{kutner:2005} is a good reference.)
 
 Assuming that the sample comes from a Normal population or the sample size is large enough so that the sampling distribution of $\bar{X}$ is approximately Normal, the standardized score or the test statistic under $H_0$, also known as, $t$-score is given by
 $$t = \frac{\bar{X} - \mu_0}{S/\sqrt{n}}$$
