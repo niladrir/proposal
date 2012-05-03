@@ -43,7 +43,7 @@ Under different situations, the test statistic follows different distributions. 
 
  Here we define something that is typically known as Type I error or the level of significance. The level of significance, denoted by $\alpha$ corresponds to the error rate that we allow ourselves saying that in 100$\alpha$ \% of all decisions we will make the wrong decision, i.e. we will reject the null hypothesis $H_0$ when in fact $H_0$ is true. 
  
- Hence we look at the value of 100(1 - $\alpha$) percentile of t distribution with the appropriate degrees of freedom and if the observed value is greater than the value, we reject $H_0$, otherwise we fail to reject $H_a$. So
+ Hence we look at the value of 100(1 - $\alpha$) percentile of t distribution with the appropriate degrees of freedom and if the observed value is greater than the percentile value, we reject $H_0$, otherwise we fail to reject $H_a$. So
  \begin{itemize}
  \item Reject $H_0$ if $t_{\hbox{obs}} > t_{1 - \alpha}$
  \item Fail to reject $H_0$ if $t_{\hbox{obs}} < t_{1 - \alpha}$
@@ -53,7 +53,7 @@ Similarly for a two sided alternative, we have
  \item Reject $H_0$ if $|t_{\hbox{obs}}| > t_{1 - \alpha/2}$
  \item Fail to reject $H_0$ if $|t_{\hbox{obs}}| < t_{1 - \alpha/2}$
  \end{itemize}
- We may also make the decision based on so-called p-value. As defined in \cite{moore:2009}, the p-value is defined as the probability of getting a value at least as unusual as the observed sample statistic assuming that $H_0$ is true. Hence the p-value measures evidence against $H_0$. The smaller the p-value the stronger the evidence is against the null hypothesis $H_0$ and in favor of $H_a$. As previously discussed, the p-value is compared to the level of significance $\alpha$ to make the decisions.
+ We may also make the decision based on so-called p-value. As defined in \cite{moore:2009}, the p-value is the probability of getting a test statistic at least as unusual as the one observed assuming that $H_0$ is true. Hence the p-value measures evidence against $H_0$. The smaller the p-value the stronger the evidence is against the null hypothesis $H_0$ and in favor of $H_a$. As previously discussed, the p-value is compared to the level of significance $\alpha$ to make the decisions.
   \begin{itemize}
  \item Reject $H_0$ if p-value $<$ $\alpha$
  \item Fail to reject $H_0$ if p-value $>$ $\alpha$
