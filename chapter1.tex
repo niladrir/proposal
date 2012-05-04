@@ -86,16 +86,19 @@ Type I error, is the probability of rejecting the null hypothesis $H_0$ when $H_
 %\end{itemize}
 
 
-\section{Introduction to Visual Inference} \citet{buja:2009} proposes visual statistical methods with an inferential framework. In visual inference the plots take on the role of test statistics, the test statistic is not a real number anymore. Assuming that the null hypothesis is true, several other plots are generated. These plots, known as the null plots gives the ``null distribution of plots'' analogous to the null distribution of test statistics. Though the null distribution is infinite i.e. conceptually we may have an infinite collection of plots of `null datasets', in practice we sample a finite number of null datasets and generate a gallery of null plots. The observed plot, which is the test statistic, is presented along with the null plots to several viewers. If the observed plot show a specific pattern not seen in the null plots, we will have reasons to believe that the observed plot may not have come from the null distribution. Hence if the viewer correctly identifies the observed plot , the decision is to reject the null hypothesis. To formalize the process of visual discovery the paper proposes two protocols described in the next section. As they said in their paper, each of the protocols helps to quantify the strength of signal versus noise similar to numerical hypothesis testing. 
+\section{Introduction to Visual Inference} 
 
+\citet{buja:2009} proposes visual statistical methods with an inferential framework. In visual inference the plots take on the role of test statistics, the test statistic is a visual representation of the data, not a numerical value. Comparison data is generated under the assumption that the null hypothesis is true, and plots of this data are generated. These plots, known as the null plots gives the ``null distribution of plots'' analogous to the null distribution of test statistics. The plot of the data is compared with the null plots. Variations of these ideas have historically been utilized for data analysis, albeit sparingly, which is coumented in the introduction of \cite{buja:2009}. \cite{gelman:2004} puts these ideas in the context of model building. The key feature of \cite{buja:2009} is that it makes the connection to the process of hypothesis testing, and quantifying significance. There are two protocols defined in this paper.
 
-\subsection{Protocols of Visual Inference} \label{sec:protocol} \citet{buja:2009} introduces two protocols for graphical inference: one is the  ``Rorschach'' and the other is the ``lineup''. The purpose of the Rorschach protocol is to measure a data analyst's tendency to over interpret plots in which there is no or spurious structure. On the other hand the lineup provides a simple inferential process to produce a valid p-value for the observed plot. Here we describe the protocols briefly and refer the reader to \citet{buja:2009} and \cite{hadley:2010} for more details. \\
+\subsection{Protocols of Visual Inference} \label{sec:protocol} \citet{buja:2009} introduces two protocols for graphical inference: one is the  ``Rorschach'' and the other is the ``lineup''. The purpose of the Rorschach protocol is to measure a data analyst's tendency to over interpret plots in which there is no or spurious structure. On the other hand the lineup provides a simple inferential process to produce a valid p-value for the observed plot. Here we describe the protocols briefly and refer the reader to \citet{buja:2009} and \cite{hadley:2010} for more details. 
 
-{\bf Rorschach:} It is possible that the randomness of the data inherits some pattern in the plot. The Rorschach protocol is designed to expose the data analyst's tendency of over-interpretation of patterns when there is actually no or spurious structure. The results are specific to a particular data analyst and a particular data analysis procedure. The protocol estimates the effective family-wise Type I error rate. A data administrator may generate the null plots and decides about the prior information that the data analyst is provided. The administrator may program the series of null plots in such a way that the plot of the real data is inserted in a random location. A toned-down version may also be used for self training. This self training may improve the family-wise error rate of the data analyst and develop an awareness of the features they are most likely to spuriously detect. 
+\begin{itemize}
+\item {\bf Rorschach:} It is possible that the randomness of the data inherits some pattern in the plot. The Rorschach protocol is designed to expose the data analyst's tendency of over-interpretation of patterns when there is actually no or spurious structure. The results are specific to a particular data analyst and a particular data analysis procedure. The protocol estimates the effective family-wise Type I error rate. A data administrator may generate the null plots and decides about the prior information that the data analyst is provided. The administrator may program the series of null plots in such a way that the plot of the real data is inserted in a random location. A toned-down version may also be used for self training. This self training may improve the family-wise error rate of the data analyst and develop an awareness of the features they are most likely to spuriously detect. 
 %The human eye can see pattern while there is no pattern in deed. This protocol helps understand the extent of this pattern in the null plots. The process includes asking readers to report what they see in null plots. This helps reader getting acquainted with the natural patterns due to completely randomness. 
-The Rorschach protocol is named after the (pop-)psychology Rorschach test, in which subjects interpret abstract ink blots. \\
+The Rorschach protocol is named after the (pop-)psychology Rorschach test, in which subjects interpret abstract ink blots. 
 
-{\bf Lineup:} The lineup protocol gets its name after the police lineup of criminal investigation. In a police lineup, the accused is placed among a set of innocent people who may be prisoners, actors or volunteers having no connection with the case. The witness is asked to pick from this lineup. Likewise in a lineup protocol, the accused which is the observed plot is placed randomly among a set of null plots, say $m$, and the witness (in this case the viewer) is asked to identify the plot as most different from the others. If the viewer  can correctly identify the observed plot from the lineup, we have reasons to believe that the observed plot has a specific pattern which is missing in the null plots. This protocol leads to the development of the technique of visual inference by defining the test statistic as a plot that mostly show a specific pattern in the data when alternative hypothesis is true. Figure \ref{lineup} shows a typical lineup. \\
+\item {\bf Lineup:} The lineup protocol gets its name after the police lineup of criminal investigation. In a police lineup, the accused is placed among a set of innocent people who may be prisoners, actors or volunteers having no connection with the case. The witness is asked to pick from this lineup. Likewise in a lineup protocol, the accused which is the observed plot is placed randomly among a set of null plots, say $m$, and the witness (in this case the viewer) is asked to identify the plot as most different from the others. If the viewer  can correctly identify the observed plot from the lineup, we have reasons to believe that the observed plot has a specific pattern which is missing in the null plots. This protocol leads to the development of the technique of visual inference by defining the test statistic as a plot that mostly show a specific pattern in the data when alternative hypothesis is true. Figure \ref{lineup} shows a typical lineup. 
+\end{itemize}
 
 Let us consider the following example . The data represents the concentration of a metal in mg/kg for two sites A and B.
 %Model : $Y_i$ = $\beta_0$ + $\beta_1 X_i$ + $\epsilon_i$, \qquad $\epsilon_i \stackrel{iid}{\sim} N(0, \sigma^2)$ \\
@@ -105,7 +108,7 @@ We want to test whether there exists a significant difference between the concen
 H_0: \mu_1 = \mu_2 \qquad \hbox{versus} \qquad H_a: \mu_1 \ne \mu_2
 \]
 %\vspace{0.4cm}
-The test statistic is the plot of the real data. The 19 null plots are generated by assuming that null hypothesis $H_0: \mu_1 =  \mu_2$ is true. So we permute the class variable site to obtain the null plots keeping the other variables fixed. The observed plot is placed randomly among these 19 plots in a lineup given in Figure \ref{lineup}. The viewer is asked to identify the plot which is most different. If the viewer can identify the plot of the real data, we will have reasons to believe that the observed plot has a pattern which is absent in the null plots. So we would reject the null hypothesis. If the viewer cannot identify the observed plot, we fail to reject the null hypothesis. \\
+The test statistic is the plot of the real data. The 19 null plots are generated by assuming that null hypothesis $H_0: \mu_1 =  \mu_2$ is true. So we permute the class variable site to obtain the null plots keeping the other variables fixed. The observed plot is placed randomly among these 19 plots in a lineup given in Figure \ref{lineup}. The viewer is asked to identify the plot which is most different. If the viewer can identify the plot of the real data, we will have reasons to believe that the observed plot has a pattern which is absent in the null plots. So we would reject the null hypothesis. If the viewer cannot identify the observed plot, we fail to reject the null hypothesis. 
 %\newpage
 
 \begin{figure}[hbtp]
@@ -121,31 +124,9 @@ The test statistic is the plot of the real data. The 19 null plots are generated
 
 %\newpage
 
-Plot 16 is the plot of the real data. If the viewer could identify the plot then we have reasons to believe that there exists a statistically significant difference between the mean concentration levels in site A and site B. So the lineup protocol is the basis of the visual inference while the Rorschach protocol helps viewer understand the extent of randomness. \\
+Plot 16 is the plot of the real data. If the viewer could identify the plot then we have reasons to believe that there exists a statistically significant difference between the mean concentration levels in site A and site B. So the lineup protocol is the basis of the visual inference while the Rorschach protocol helps viewer understand the extent of randomness. 
 
-
-\begin{figure}[hbtp]
-%\begin{figurehere}
-   \centering
-       \scalebox{0.5}{\includegraphics{visual-inference-plot-1.pdf}}
-      \caption{Null Distribution of the test statistic with the observed value and the values for the null plots corresponding to the lineup in Figure \ref{lineup}}
-      \label{visual-plot}
-%	\vspace{-.1in}
-\end{figure}
-
-As discussed in the introduction, a human judge can view just a finite number of null plots in visual inference although the null distribution is infinite. This poses a small wrinkle on the lineup protocol.  Figure \ref{visual-plot} gives the infinite null distribution of the lineup in Figure \ref{lineup}. The red line shows the test statistic of the observed plot (Plot 16) and the blue lines show the test statistic for the 19 null plots. In visual inference the red line is compared only to these finite blue lines visually to make a decision, unlike classical inference where we look at the rejection region (Figure \ref{classical}) to make decisions. So as Tukey suggested, there may be a ``bad" random sample of null plots which may affect our decision. So we developed techniques to determine the quality of a lineup in Chapter \ref{ch:waldo}. 
-
-%\begin{figure}[hbtp]
-%%\begin{figurehere}
-%   \centering
-%       \scalebox{0.5}{\includegraphics{visual-inference-plot.pdf}}
-%      \caption{Null Distribution of the test statistic with the observed value and the values for the null plots.}
-%      \label{visual-plot-0}
-%%	\vspace{-.1in}
-%\end{figure}
- 
-
-\cite{majumder:2011} did a comparative study between the visual inference method and the classical inference methods by comparing the expected power of the visual test and the power of the UMP test. They showed that the expected power of a visual test is almost as good as the power of UMP test. They established properties and efficacy of visual testing procedures in order to use them in situations where traditional test cannot be used. \cite{majumder:2011} in their paper have this stunning table (Table \ref{tbl:compare}) which describes the comparison of visual inference technique with the existing inference technique very efficiently. 
+\cite{majumder:2011} describes a comparative study between the visual inference method and the classical inference methods, focusing on plots that might be used in linear modelling. In his work the expected power of the visual test is compared with the power of the uniformly most powerful (UMP) test. The power of the visual test is computed by responses from several large samples of lineup evaluators recrtuited through Amazon Turk \cite{turk}. The results suggest that the expected power of a visual test is almost as good as the power of UMP test, that visual inference compares favorably with classical testing, in the traditional setting where the classical test performs well. They established properties and efficacy of visual testing procedures in order to use them in situations where traditional test cannot be used. In addition \cite{majumder:2011} provide a nice way of making the leap traditional hypothesis testing to visual inference. We have adapted that table for the $H_0: \mu_1 =  \mu_2$ vs $H_a: \mu_1 \ne \mu_2$ example described and plotted in Figure \ref{lineup}, which can be seen in Table \ref{tbl:compare}.
 
 %\newpage
 
@@ -171,6 +152,28 @@ As discussed in the introduction, a human judge can view just a finite number of
 \end{tabular}
 \label{tbl:compare}
 \end{table*}	
+
+\begin{figure}[hbtp]
+%\begin{figurehere}
+   \centering
+       \includegraphics[width=0.5\textwidth]{visual-inference-plot-1.pdf}
+      \caption{Sampling distribution of the test statistic with the observed value and the values for the null plots corresponding to the lineup in Figure \ref{lineup}}.
+      \label{visual-plot}
+%	\vspace{-.1in}
+\end{figure}
+
+In traditional hypothesis testing the sampling distribution of the test statistics is continuous, which allows evaluation of probability on an infinite spectrum. With the lineup, although conceptually we may have an infinite collection of plots from the null distribution, in practice, we sample a finite number of null datasets to generate the lineup. A human judge has a physical limit on the number of null plots they can peruse. This poses one of the issues with using the lineup protocol.  Figure \ref{visual-plot} gives the sampling distribution (black curve) for the $t$-distribution, along with the $t$-statistics of the samples that were drawn from the null distribution (blue bars) and that of the observed data (red bar) for the plots in the lineup shown in Figure \ref{lineup}. Effectively,  in visual inference the red line is compared only to these finite number of blue lines visually to make a decision, unlike classical inference where we look at the rejection region (Figure \ref{classical}) to make decisions. So as Tukey suggested, there may be a ``bad'' random sample of null plots which may affect our decision. This is a major component of this thesis research to we develop techniques to determine the quality of a lineup. In practice, though, it needs to be noted, that visual inference will not typically be used in applications where there is an existing classical test. The purpose of visual inference is not to compete with classical statistics -- its purpose it to provide formalism and quantification in problems where there are none, currently. For the purposes of research and assessment we use the classical setting because it provides benchmarks for how visual inference will likely perform.
+
+%\begin{figure}[hbtp]
+%%\begin{figurehere}
+%   \centering
+%       \scalebox{0.5}{\includegraphics{visual-inference-plot.pdf}}
+%      \caption{Null Distribution of the test statistic with the observed value and the values for the null plots.}
+%      \label{visual-plot-0}
+%%	\vspace{-.1in}
+%\end{figure}
+ 
+
 
 %\begin{table*}[hbtp]
 %\caption{Comparison of visual inference with existing inference technique}
