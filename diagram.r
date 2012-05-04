@@ -38,6 +38,8 @@ ggsave("visual-inference-plot.pdf",height=6,width=6)
 lineup<-read.csv("conc-lineup.csv")
 qplot(label, conc, data=lineup, colour=label, size=I(3), alpha=I(0.5), ylab="Conc (mg/kg)", xlab="Site") + facet_wrap(~.sample)
 
+conc<-read.csv("conc.csv")
+qplot(label, conc, data=conc, colour=label, size=I(5), alpha=I(0.5), ylab="Conc (mg/kg)", xlab="Site") 
 
 t_act<-function(cl,x){
 	t<-t.test(x[cl==levels(cl)[2]],x[cl==levels(cl)[1]])
@@ -50,7 +52,7 @@ x<-seq(-4,4,0.01)
 y<-dnorm(x)
 z<-sample(x,19)
 #qplot(x, y, geom="line", xlab="", ylab="", size=I(1)) 
-ggplot() + geom_line(aes(x=x,y=y), size=I(1))+ geom_hline(yintercept=0)  + scale_y_continuous("",breaks=0)+ scale_x_continuous("",breaks=c(0,t_dat$t[16]),labels=c(0,expression(t[observed]))) + geom_linerange(aes(ymin=0,ymax=0.03,x=t_dat$t[-16]),col="blue",size=0.8,alpha=I(0.6))  + geom_linerange(aes(ymin=0,ymax=0.05,x=t_dat$t[16]),col="red",size=0.8,alpha=I(0.8)) + geom_text(mapping=aes(x=t_dat$t[c(1,4:6,8:12,15,17:20)],label=c(1,4:6,8:12,15,17:20)),y=0.05,color="black",size=I(3))+ geom_text(mapping=aes(x=t_dat$t[-c(1,4:6,8:12,15:16,17:20)],label=c(2,3,7,13,14)),y=0.07,color="black",size=I(3))
+ggplot() + geom_line(aes(x=x,y=y), size=I(1))+ geom_hline(yintercept=0)  + scale#_y_continuous("",breaks=0)+ scale_x_continuous("",breaks=c(0,t_dat$t[16]),labels=c(0,expression(t[observed]))) + geom_linerange(aes(ymin=0,ymax=0.03,x=t_dat$t[-16]),col="blue",size=0.8,alpha=I(0.6))  + geom_linerange(aes(ymin=0,ymax=0.05,x=t_dat$t[16]),col="red",size=0.8,alpha=I(0.8)) + geom_text(mapping=aes(x=t_dat$t[c(1,4:6,8:12,15,17:20)],label=c(1,4:6,8:12,15,17:20)),y=0.05,color="black",size=I(3))+ geom_text(mapping=aes(x=t_dat$t[-c(1,4:6,8:12,15:16,17:20)],label=c(2,3,7,13,14)),y=0.07,color="black",size=I(3))
 ggplot() + geom_line(aes(x=x,y=y))+ geom_hline(yintercept=0)  + scale_y_continuous("",breaks=0)+ scale_x_continuous("",breaks=c(-2,0,t_dat$t[16]),labels=c("",0,expression(t[obs]))) + geom_linerange(aes(ymin=0,ymax=0.03,x=t_dat$t[-16]),col="blue",size=0.8,alpha=I(0.6))  + geom_linerange(aes(ymin=0,ymax=0.05,x=t_dat$t[16]),col="red",size=0.8,alpha=I(0.8)) + geom_text(mapping=aes(x=t_dat$t[c(1:15,17:20)],label=c(1:15,17:20),y=runif(19)*0.09+0.05),color="blue",size=I(3)) + geom_text(mapping=aes(x=t_dat$t[16],label="16",y=0.08),color="red",size=I(3))
 
 ggsave("visual-inference-plot-1.pdf",height=6,width=6)
