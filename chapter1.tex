@@ -86,16 +86,8 @@ Type I error, is the probability of rejecting the null hypothesis $H_0$ when $H_
 %\end{itemize}
 
 
-\section{Introduction to Visual Inference} \citet{buja:2009} proposes visual statistical methods with an inferential framework. In visual inference the plots take on the role of test statistics, the test statistic is not a real number anymore. Assuming that the null hypothesis is true, several other plots are generated. These plots, known as the null plots gives the ``null distribution of plots'' analogous to the null distribution of test statistics. Though the null distribution is infinite i.e. conceptually we may have an infinite collection of plots of `null datasets', in practice we sample a finite number of null datasets and generate a gallery of null plots (Figure \ref{visual-plot-0}). The observed plot, which is the test statistic, is presented along with the null plots to several viewers. In Figure \ref{visual-plot-0} the red line shows the test statistic of the observed plot and the blue lines show the test statistic for the null plots. If the observed plot show a specific pattern not seen in the null plots, we will have reasons to believe that the observed plot may not have come from the null distribution. Hence if the viewer correctly identifies the observed plot , the decision is to reject the null hypothesis. To formalize the process of visual discovery the paper proposes two protocols described in the next section. As they said in their paper, each of the protocols helps to quantify the strength of signal versus noise similar to numerical hypothesis testing. 
+\section{Introduction to Visual Inference} \citet{buja:2009} proposes visual statistical methods with an inferential framework. In visual inference the plots take on the role of test statistics, the test statistic is not a real number anymore. Assuming that the null hypothesis is true, several other plots are generated. These plots, known as the null plots gives the ``null distribution of plots'' analogous to the null distribution of test statistics. Though the null distribution is infinite i.e. conceptually we may have an infinite collection of plots of `null datasets', in practice we sample a finite number of null datasets and generate a gallery of null plots (Figure \ref{visual-plot-0}). The observed plot, which is the test statistic, is presented along with the null plots to several viewers. If the observed plot show a specific pattern not seen in the null plots, we will have reasons to believe that the observed plot may not have come from the null distribution. Hence if the viewer correctly identifies the observed plot , the decision is to reject the null hypothesis. To formalize the process of visual discovery the paper proposes two protocols described in the next section. As they said in their paper, each of the protocols helps to quantify the strength of signal versus noise similar to numerical hypothesis testing. 
 
-\begin{figure}[hbtp]
-%\begin{figurehere}
-   \centering
-       \scalebox{0.5}{\includegraphics{visual-inference-plot.pdf}}
-      \caption{Null Distribution of the test statistic with the observed value and the values for the null plots.}
-      \label{visual-plot-0}
-%	\vspace{-.1in}
-\end{figure}
 
 \subsection{Protocols of Visual Inference} \label{sec:protocol} \citet{buja:2009} introduces two protocols for graphical inference: one is the  ``Rorschach'' and the other is the ``lineup''. The purpose of the Rorschach protocol is to measure a data analyst's tendency to over interpret plots in which there is no or spurious structure. On the other hand the lineup provides a simple inferential process to produce a valid p-value for the observed plot. Here we describe the protocols briefly and refer the reader to \citet{buja:2009} and \cite{hadley:2010} for more details. \\
 
@@ -132,12 +124,23 @@ The test statistic is the plot of the real data. The 19 null plots are generated
 Plot 16 is the plot of the real data. If the viewer could identify the plot then we have reasons to believe that there exists a statistically significant difference between the mean concentration levels in site A and site B. So the lineup protocol is the basis of the visual inference while the Rorschach protocol helps viewer understand the extent of randomness. \\
 
 
+\begin{figure}[hbtp]
+%\begin{figurehere}
+   \centering
+       \scalebox{0.5}{\includegraphics{visual-inference-plot-1.pdf}}
+      \caption{Null Distribution of the test statistic with the observed value and the values for the null plots corresponding to the lineup in Figure \ref{lineup}}
+      \label{visual-plot}
+%	\vspace{-.1in}
+\end{figure}
+
+As discussed in the introduction, a human judge can view just a finite number of null plots in visual inference although the null distribution is infinite. This poses a small wrinkle on the lineup protocol.  Figure \ref{visual-plot} gives the infinite null distribution of the lineup in Figure \ref{lineup}. The red line shows the test statistic of the observed plot (Plot 16) and the blue lines show the test statistic for the 19 null plots. In visual inference the red line is compared only to these finite blue lines visually to make a decision, unlike classical inference where we look at the rejection region (Figure \ref{classical}) to make decisions. So as Tukey suggested, there may be a ``bad" random sample of null plots which may affect our decision. So we developed techniques to determine the quality of a lineup in Chapter \ref{ch:waldo}. 
+
 %\begin{figure}[hbtp]
 %%\begin{figurehere}
 %   \centering
-%       \scalebox{0.5}{\includegraphics{visual-inference-plot-1.pdf}}
-%      \caption{Null Distribution of the test statistic with the observed value and the values for the null plots corresponding to the lineup in Figure \ref{lineup}}
-%      \label{visual-plot}
+%       \scalebox{0.5}{\includegraphics{visual-inference-plot.pdf}}
+%      \caption{Null Distribution of the test statistic with the observed value and the values for the null plots.}
+%      \label{visual-plot-0}
 %%	\vspace{-.1in}
 %\end{figure}
  
