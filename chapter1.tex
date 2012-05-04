@@ -54,7 +54,7 @@ The next step is the definition of how small is small. This is determined by the
 \item Fail to reject $H_0$ if $p$-value $>$ $\alpha$
 \end{itemize}
 
-Equivalently we can also decide to reject or fail to reject $H_0$ by first determining the 100(1 - $\alpha$) percentile value of $t_{n-1}$ distribution, called the critical value, $t_{n-1}(\alpha)$. This is compared to the observed value of the test statistic, $t$, leading to the decision criteria being:
+Equivalently we can also decide to reject or fail to reject $H_0$ by first determining the 100(1 - $\alpha$) percentile value of $t_{n-1}$ distribution, called the critical value, $t_{n-1}(\alpha)$. This is compared to the observed value of the test statistic, $t$, leading to the decision criteria (Figure \ref{classical}) being:
 
 \begin{itemize} \itemsep 0in
 \item Reject $H_0$ if $t > t_{n-1}(\alpha)$
@@ -67,6 +67,12 @@ Different alternative hypothesis require slightly different comparisons. The two
 \item Reject $H_0$ if $|t| > t_{n-1}(\alpha)$
 \item Fail to reject $H_0$ if $|t| < t_{n-1}(\alpha)$
 \end{itemize}
+
+\begin{figure}[htp]
+\centerline{\includegraphics[width=0.5\textwidth]{diagram.pdf}}
+\caption{Decision regions  for classical inference for $H_0: \mu=\mu_0$ vs $H_a:\mu>\mu_0$.}
+\label{classical}
+\end{figure}
 
 Type I error, is the probability of rejecting the null hypothesis $H_0$ when $H_0$ is true. Type II error, denoted by $\beta$ is the probability of failing to reject the null hypothesis $H_0$ when $H_0$ is false. Type I error is committed in a jury trial when it is decided that a not guilty person is  ``guilty''. This is a serious mistake as an innocent person is punished. Type II error is committed when there is a guilty person is not convicted, not considered to be so serious. The power of a statistical test is defined as the probability of correctly rejecting $H_0$ when $H_0$ is false and is usually denoted by $\beta$. (\cite{casella:2002} and \cite{lehman:1997} give more thorough treatments of hypothesis testing.)
  
