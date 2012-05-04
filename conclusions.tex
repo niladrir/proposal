@@ -31,7 +31,7 @@ We obtained the wasp data used to generate Figure \ref{oligo} from the authors. 
        \label{toth_lineup}
 \end{figure*} 
 
-In Figure \ref{toth_lineup} we can see that the clusters are separated even after breaking any dependency between the groups and the variables. Since PDA is a better index than LDA in a large $p$ situation, we used PDA to generate another lineup which is presented in Figure \ref{toth_pda}. In Figure \ref{toth_pda}, the clusters are not even separated and we cannot identify the true plot. We also generated 40 dimensions of random noise with 50 observations in each dimension. A group variable is also added as the one present in the wasp data. We performed a LDA on this random noise data and we can can still see clusters.  This shows that the separation seen in Figure \ref{oligo} may not be real but appear only due to the fact that the number of variables are large.
+In Figure \ref{toth_lineup} we can see that the clusters are separated even after breaking any dependency between the groups and the variables. Since PDA is a better index than LDA in a large $p$ situation, we used PDA to generate another lineup which is presented in Figure \ref{toth_pda}. In Figure \ref{toth_pda}, the clusters are not even separated and we cannot identify the true plot. We also generated 40 dimensions of random noise with 50 observations in each dimension. A group variable is also added as the one present in the wasp data. We performed a LDA on this random noise data and we can still see clusters.  This shows that the separation seen in Figure \ref{oligo} may not be real but appear only due to the fact that the number of variables are large.
 
 \begin{figure*}[hbtp]
 %\begin{figurehere}
@@ -81,9 +81,9 @@ wc_P^2(X) = \left \{
 %\end{eqnarray*}
 where like the weighted bin distance, $W_{X_i,Y_i}$ denotes the joint (empirical) density of $X$, $Y$ at location $(X_i, Y_i)$. 
 
-\item Correlation between $X$ and $[P]X$: Let $X$ be a continuous variable. The correlation between the $X$ and $[P]X$ is defined as
+\item Correlation between $Y$ and $[P]Y$: Let $Y$ be a continuous variable.The correlation between the $Y$ and $[P]Y$ is defined as
 \[
-r_P(X) = \frac{ \sum_{i=1}^n (X_i - \bar{X_i})(X_{P(i)} - \bar{X}_{P(i)})}{\sqrt{\sum_{i=1}^n (X_i - \bar{X_i})^2}\sqrt{\sum_{i=1}^n (X_{P(i)}- \bar{X}_{P(i)})^2}}.
+r_P(X) = \frac{ \sum_{i=1}^n (Y_i - \bar{Y_i})(Y_{P(i)} - \bar{Y}_{P(i)})}{\sqrt{\sum_{i=1}^n (Y_i - \bar{Y_i})^2}\sqrt{\sum_{i=1}^n (Y_{P(i)}- \bar{Y}_{P(i)})^2}}.
 \]
 
 \item Hausdorff distance: Let $a \in A$ and $b \in B$ be two sets of points. The Hausdorff distance between A and B is defined as
@@ -94,7 +94,7 @@ where
 \begin{eqnarray*}
 h(A, B) &:=& \max_{a \in A} \min_{b \in B} ||a - b|| \\ & = & \max_{a \in A} \min_{b \in B} \sqrt{\sum_{i=1}^n (a_i - b_i)^2}
 \end{eqnarray*}
-In our case $A$ and $B$ are the points whose coordinates are $(X_i, Y_i)$ and $(X_{P(i)}, Y_i)$ respectively. This measure is computationally intensive.
+In our case $A$ and $B$ are the points whose coordinates are $(X_i, Y_i)$ and $(X_i, Y_{P(i)})$ respectively. This measure is computationally intensive.
 
 \end{itemize}
 
@@ -124,7 +124,7 @@ We calculate the distance between the actual dataset and each of the 10,000 perm
 
 The drawbacks with this procedure is that the hamming distance ($h_P$)  and the binned distance ($b_P$) have discrete distributions. Hence, according to these distance measures, in most situations there may be more than one dataset which have the minimum distance from the actual dataset. But we select any one of the datasets randomly. Also in some cases two or more distance measures may yield the same dataset as the one ``closest'' to the actual dataset. In these cases, we randomly select the other datasets from the 10,000 permuted datasets.   \\
 
-Then we form a lineup with 3 rows and 3 columns by putting the actual dataset in the middle and randomly placing the other datasets in the other eight positions. Figure \ref{minimum} shows such a lineup.
+Then we form a plot-matrix with 3 rows and 3 columns by putting the actual dataset in the middle and randomly placing the other datasets in the other eight positions. Figure \ref{minimum} shows such a plot-matrix.
 
 \begin{figure}[htbp]
 %\begin{figurehere}
