@@ -13,25 +13,25 @@
 %\colorlet{newred}{red!60!black}
 %\usecolortheme[named=red]{structure}
 %\setbeamercolor{block}{bg=white}
- \setbeamertemplate{footline}
-        {
-      \leavevmode%
-      \hbox{%
-      \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
-        \usebeamerfont{author in head/foot}\insertshortauthor~~(\insertshortinstitute)
-      \end{beamercolorbox}%
-      \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
-        \usebeamerfont{title in head/foot}\insertshorttitle
-      \end{beamercolorbox}%
-      \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
-        \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
-
-    %#turning the next line into a comment, erases the frame numbers
-        %\insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
-
-      \end{beamercolorbox}}%
-      \vskip0pt%
-    }
+% \setbeamertemplate{footline}
+%        {
+%      \leavevmode%
+%      \hbox{%
+%      \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+%        \usebeamerfont{author in head/foot}\insertshortauthor~~(\insertshortinstitute)
+%      \end{beamercolorbox}%
+%      \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+%        \usebeamerfont{title in head/foot}\insertshorttitle
+%      \end{beamercolorbox}%
+%      \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+%        \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+%
+%    %#turning the next line into a comment, erases the frame numbers
+%        %\insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+%
+%      \end{beamercolorbox}}%
+%      \vskip0pt%
+%    }
 %\setbeamertemplate{blocks}{shadow=true}
 %\setbeamertemplate{footline}{\hspace*{.5cm}\scriptsize{\insertauthor 
 %\hspace*{50pt} \hfill\insertframenumber\hspace*{.5cm}}}
@@ -41,7 +41,7 @@
 
 \begin{document}
 %--------------------------------------Title--------------------------------------------------
-\title{Application of Lineup Protocols in different scenarios }
+\title[PhD Proposal]{Application of and Metrics for Lineup Protocols in Different Scenarios }
 \author[N. Roy Chowdhury]{PhD Proposal \\ by \\Niladri Roy Chowdhury}
 \institute[Iowa State]{Program of Study Committee: \\
 Dianne Cook, Major Professor \\
@@ -49,18 +49,16 @@ Heike Hofmann, Major Professor \\
 Petrutza Caragea \\
 Arka Ghosh \\
 Eric Cooper}
-\date[May 10]{May 10, 2012}
+\date[May 9]{May 9, 2012}
 
 
 \begin{frame}
 	\maketitle
 \end{frame}
 
-%\begin{frame}
-%	\begin{itemize}
-%		\item Undergrad Major: Statistics
-%		  \begin{itemize}
-%			  \item 1998: graduated from University of Dhaka, Bangladesh.
+\begin{frame}
+	\begin{itemize}
+			  \item 2006 Jul: Bachelor's from University of Calcutta, India.
 %			  \item thesis on the fecundability and conception wait in Bangladesh.
 %		  \end{itemize}		 
 %		\item Employment: 1998-2005
@@ -68,7 +66,10 @@ Eric Cooper}
 %			  \item computer programmer and database administrator.
 %			  \item research in graph theory.
 %		  \end{itemize}			 
-%		\item Ball State University: 2005-2007
+		\item 2008 Jun: Masters from University of Calcutta, India.
+		\item 2008 Aug: Joined Iowa State University, IA.
+		\item 2010 Jul: Passed Preliminary Written Exam.
+		\item 2010 Dec: Joined Graphical Statistics Group.
 %		  \begin{itemize}
 %			  \item thesis on Tukey's gh family of distribution
 %			  \item research assistant for Traveller's Insurance
@@ -78,8 +79,8 @@ Eric Cooper}
 %			  \item research for Hy-vee and worked as an intern.
 %			  \item after passing preliminary written exam joined graphical statistics group.
 %		  \end{itemize}
-%	\end{itemize}		
-%\end{frame}
+	\end{itemize}		
+\end{frame}
 
 
 %\begin{frame}
@@ -98,6 +99,7 @@ Eric Cooper}
 \begin{frame}
   \frametitle{Visual Inference}
 		  \begin{itemize}
+		  	\item Plotting data has its origin before the development of classical inference problems.
 			  \item Statistical graphics have been used for
 			     \begin{itemize}
 			        \item exploratory data analysis (EDA).
@@ -109,22 +111,22 @@ Eric Cooper}
 
 
 \begin{frame}
-\frametitle{Visual inference}
+\frametitle{Visual Inference}
   \begin{itemize}
     \item Buja et al (2009)
 		  \begin{itemize}
-			  \item introduced method to test the significance of findings.
-			  \item demonstrated formal testing of overall model fitting.
+			  \item Introduced method to test the significance of findings.
+			  \item Demonstrated formal testing of overall model fitting.
 		  \end{itemize}
 		\item Protocols of Visual Inference.
 		  \begin{itemize}
 			  \item Rorschach
 			  \item Lineup
 		  \end{itemize}		
-		\item Validation of lineup protocols. 
+		\item Application of lineup protocols. 
 		  \begin{itemize}
-			  \item the issues related to the performance.
-			  \item has been the focus of this research.
+			  \item In a Large $p$ Small $n$ setting.
+			  \item Has been the focus of this research.
 		  \end{itemize}			
   \end{itemize}		  
 \end{frame}
@@ -179,7 +181,7 @@ Eric Cooper}
 		\end{column}
 		
 		\begin{column}{0.6\textwidth}
-			 \begin{center} \scalebox{0.5}{\includegraphics{test_statistic.pdf}} \end{center}
+			 \begin{center} \scalebox{0.85}{\includegraphics{data-dot.pdf}} \end{center}
 		\end{column}
 		
 	\end{columns} 
@@ -189,7 +191,7 @@ Eric Cooper}
 
 
 \begin{frame}
-  \frametitle{Compare test statistic with null distribution}
+  \frametitle{Compare Test Statistic with Null Distribution}
 	\begin{columns}
 		\begin{column}{0.4\textwidth} Lineup plot
 		  \begin{itemize}
@@ -203,7 +205,7 @@ Eric Cooper}
 		\end{column}
 		
 		\begin{column}{0.6\textwidth}
-			 \begin{center} \scalebox{0.5}{\includegraphics{plot_1d_99_19.pdf}} \end{center}
+			 \begin{center} \scalebox{0.5}{\includegraphics{lineup-dot.pdf}} \end{center}
 		\end{column}
 	\end{columns}  
 \end{frame}
@@ -215,7 +217,7 @@ Eric Cooper}
 	
 		\begin{column}{0.4\textwidth}
 		  \begin{itemize}
-			  \item To test $H_0: \mu_1 = \mu_2$ vs $H_a: \mu_1 \ne \mu_2$
+			  \item To test $H_0: \mu_1 = \mu_2$ vs $H_a: \mu_1 \ne \mu_2.$
 			  \item The test statistic is the plot of the real data.
 			  \item The null plots are generated by permuting class variable keeping the continuous variable fixed.			
 			    \item We reject $H_0$ if the observed plot is identified.		
@@ -232,25 +234,26 @@ Eric Cooper}
 
 \begin{frame}
 \frametitle{Comparison}
-\vspace{-0.8cm}
+\vspace{-0.25cm}
 \begin{table}[hbtp]
 %\caption{Comparison of visual inference with existing inference technique}
 \centering 
-\begin{tabular}{llll} 
+\begin{tabular}{p{2cm}lll} 
 \hline
   &  Mathematical Inference &  Visual Inference \\ %[0.5ex] % inserts table %heading 
 \hline
-  Hypothesis & \hspace{-1.1cm} $H_0: \mu_1= \mu_2$ vs $H_a: \mu_1 \ne \mu_2$& $H_0: \mu_1 = \mu_2$ vs $H_a: \mu_1 \ne \mu_2$\\
+Hypothesis &  $H_0: \mu_1= \mu_2$ & $H_0: \mu_1 = \mu_2$\\
+ & vs $H_a: \mu_1 \ne \mu_2$ & vs $H_a: \mu_1 \ne \mu_2$\\
 %  \vspace{0.5cm}	
  & \begin{minipage}[h]{1cm} \begin{center} \scalebox{0.25}{\includegraphics{down_arrow.pdf}} \end{center} \end{minipage} & \begin{minipage}[h]{1cm} \begin{center} \scalebox{0.25}{\includegraphics{down_arrow.pdf}} \end{center} \end{minipage} \\
 %\vspace{0.5cm}				  
- Test statistic & $T(y)=\frac{\bar{y}_1 - \bar{y}_2}{s\sqrt{\frac{1}{n_1} + \frac{1}{n_2}}}$ & $T(y)=$ \begin{minipage}[h]{1cm} \begin{center} \scalebox{0.12}{\includegraphics{data-dot.pdf}} \end{center} \end{minipage} \\
+ Test Statistic & $T(y)=\frac{\bar{y}_1 - \bar{y}_2}{s\sqrt{\frac{1}{n_1} + \frac{1}{n_2}}}$ & $T(y)=$ \begin{minipage}[h]{1cm} \begin{center} \scalebox{0.2}{\includegraphics{data-dot.pdf}} \end{center} \end{minipage} \\
 				 
  & \begin{minipage}[h]{1cm} \begin{center} \scalebox{0.25}{\includegraphics{down_arrow.pdf}} \end{center} \end{minipage} & \begin{minipage}[h]{1cm} \begin{center} \scalebox{0.25}{\includegraphics{down_arrow.pdf}} \end{center} \end{minipage} \\
 				 
- Null Distribution & $f_{T(y)}(t); $\begin{minipage}[h]{1cm} \begin{center} \scalebox{0.12}{\includegraphics{stat_mathematical_test.pdf}} \end{center} \end{minipage} & $f_{T(y)}(t); $ \begin{minipage}[h]{1cm} \begin{center} \scalebox{0.19}{\includegraphics{lineup-dot.pdf}} \end{center} \end{minipage} \\
+Sampling Distribution & $f_{T(y)}(t); $\begin{minipage}[h]{1cm} \begin{center} \scalebox{0.3}{\includegraphics{two-sided-rejection.pdf}} \end{center} \end{minipage} & $f_{T(y)}(t); $ \begin{minipage}[h]{1cm} \begin{center} \scalebox{0.2}{\includegraphics{lineup-dot.pdf}} \end{center} \end{minipage} \\
  & \begin{minipage}[h]{1cm} \begin{center} \scalebox{0.22}{\includegraphics{down_arrow.pdf}} \end{center} \end{minipage} & \begin{minipage}[h]{1cm} \begin{center} \scalebox{0.22}{\includegraphics{down_arrow.pdf}} \end{center} \end{minipage} \\
- Reject $H_0$ if & observed $T$ is extreme & observed plot is identifiable \\
+Reject $H_0$ if & observed $T$ is extreme & observed plot is identifiable \\
 \hline 
 \end{tabular}
 \label{tbl:compare}
@@ -269,8 +272,8 @@ Eric Cooper}
 \item The optimization procedure in the  \texttt{tourr} package is new, different from the algorithms that have existed before in GGobi %\cite{STLBC03} 
 and XGobi. %\cite{SCB91}. 
 \item  PP with the PDA index, on a large $p$, small $n$ data set from a microarray study.
-\item comparison have been looking at pure noise data. 
-\item strangely could often pick the projection of the  ``actual" data from a lineup of projections of permuted class data. 
+\item Comparison have been looking at pure noise data. 
+\item Strangely could often pick the projection of the  ``actual" data from a lineup of projections of permuted class data. 
 
 \end{itemize}	
 \end{frame}
@@ -283,7 +286,7 @@ and XGobi. %\cite{SCB91}.
 		  \begin{itemize}
 		   \item $n=50$ wasps, 3 groups each having 12 wasps and the other has 14 wasp.
 
-			  \item a subset of $p=40$ significantly different oligonucleotides from a total of 447.
+			  \item A subset of $p=40$ significantly different oligonucleotides from a total of 447.
 			                                       \item Plot LD1 versus LD2. (Low-$d$ projection showing best separation between classes.)
 			 \item F: foundress, G: gyne, Q: queen and W: worker.
 			% \item Can you identify the plot of the "true" data?
@@ -300,6 +303,8 @@ and XGobi. %\cite{SCB91}.
 	\tiny{ Reference: ``Brain transcriptomic analysis in paper wasps identifies genes associated with behaviour across social insect lineages" by Toth {\em et. al} (Feb, 2010)}
 	
 \end{frame}
+
+
 
 \begin{frame}
 \frametitle{Introduction}
@@ -320,46 +325,69 @@ and XGobi. %\cite{SCB91}.
 \end{frame}
 
 
-
+\begin{frame}
+\frametitle{Definition}
+\begin{itemize}
+\item Let $X_{ij}$ be the $p$-dimensional vector of the $j$-th observation in the $i$-th class, $i = 1, \dots, g$, $j = 1, \dots, n_i$.
+\item $g$ is the number of classes, $n_i$ is the number of observations in class $i$ and $n = \sum_{i=1}^g n_i$.
+\item $B = \sum_{i=1}^g n_i (\bar{X}_{i.} - \bar{X}_{..})(\bar{X}_{i.} - \bar{X}_{..})^T$ : between-class SS.
+\item $W = \sum_{i=1}^g \sum_{j=1}^{n_i} (X_{ij} - \bar{X}_{i.})(X_{ij} - \bar{X}_{i.})^T$: within-class SS.
+\item Then the LDA PP index is 
+$$I_{LDA}(A) = 1 - \frac{|A^TWA|}{|A^T(W + B)A|}$$
+\item $A$ is an orthogonal projection onto a $k$-dimensional space.
+\end{itemize}
+\end{frame}
 
 \begin{frame}
-  \frametitle{Checking PP optimization}
-	\begin{columns}
-		\begin{column}{0.4\textwidth}{1D projections}
-		  \begin{itemize}
-			  \item Data simulated from a standard normal with $n=30, p=100$.
-			  \item The first 15 observations labelled class 1, last 15 labelled class 2
-			 -- {\bf No true class}, data is pure noise.
-%			\item Can you identify the plot of the ``true" data?
-		  \end{itemize}		
-			
-		\end{column}
-		
-		\begin{column}{0.6\textwidth}
-			 \begin{center} \scalebox{0.5}{\includegraphics{plot_1d_100_4.pdf}} \end{center}
-		\end{column}
-	\end{columns}  
-\end{frame} 
+\begin{itemize}
+\item The LDA index finds a projection $a$ by maximizing $a^T\sum_Ba/a^T\sum_Wa$.
+\item $\sum_B$ is the between-class covariance matrix and $\sum_W$ is the within-class covariance matrix.
+\item For small $n$ and large $p$, for some $a$, $a^T\sum_Wa$ tends to be very small.
+\item PDA index is an improvement over LDA index.
+\item The PDA index is
+$$I_{PDA}(A, \lambda) = 1 - \frac{|A^T\{(1 - \lambda)W^s + n\lambda I_p\}A|}{|A^T\{(1 - \lambda)(B^s + W^s) + n\lambda I_p\}A|}$$
+\item $W^s$ and $B^s$ is the within-class and between-class sum of squares of the standardized data respectively.
+\end{itemize}
+\end{frame}
 
-
-\begin{frame}
-  \frametitle{ 1D projections}
-	\begin{columns}
-		\begin{column}{0.4\textwidth}
-		  \begin{itemize}
-			  \item Data simulated from a standard normal with $n=30, p=100$.
-			  \item 99 dimensions of pure noise and 1 dimension means of class 1, 2 are different -- {\bf there is a ``true" class}.
-%			\item Can you identify the plot of the ``true" data?
-		  \end{itemize}		
-			
-		\end{column}
-		
-		\begin{column}{0.6\textwidth}
-			 \begin{center} \scalebox{0.5}{\includegraphics{plot_1d_99_19.pdf}} \end{center}
-		\end{column}
-	\end{columns}  
-\end{frame} 
-
+%\begin{frame}
+%  \frametitle{Checking PP optimization}
+%	\begin{columns}
+%		\begin{column}{0.4\textwidth}{1D projections}
+%		  \begin{itemize}
+%			  \item Data simulated from a standard normal with $n=30, p=100$.
+%			  \item The first 15 observations labelled class 1, last 15 labelled class 2
+%			 -- {\bf No true class}, data is pure noise.
+%%			\item Can you identify the plot of the ``true" data?
+%		  \end{itemize}		
+%			
+%		\end{column}
+%		
+%		\begin{column}{0.6\textwidth}
+%			 \begin{center} \scalebox{0.5}{\includegraphics{plot_1d_100_4.pdf}} \end{center}
+%		\end{column}
+%	\end{columns}  
+%\end{frame} 
+%
+%
+%\begin{frame}
+%  \frametitle{ 1D projections}
+%	\begin{columns}
+%		\begin{column}{0.4\textwidth}
+%		  \begin{itemize}
+%			  \item Data simulated from a standard normal with $n=30, p=100$.
+%			  \item 99 dimensions of pure noise and 1 dimension means of class 1, 2 are different -- {\bf there is a ``true" class}.
+%%			\item Can you identify the plot of the ``true" data?
+%		  \end{itemize}		
+%			
+%		\end{column}
+%		
+%		\begin{column}{0.6\textwidth}
+%			 \begin{center} \scalebox{0.5}{\includegraphics{plot_1d_99_19.pdf}} \end{center}
+%		\end{column}
+%	\end{columns}  
+%\end{frame} 
+%
 
 \begin{frame}
   \frametitle{ 2D projections}
@@ -370,6 +398,7 @@ and XGobi. %\cite{SCB91}.
 			  \item The first 10 observations labelled class 1, the second 10 class 2 and the last 10 class 3. 
 			 -- {\bf No true class}, data is pure noise.
 			\item 19 null plots of 30 generated with the smallest Wilks' $\lambda$ value was used. 
+			\item Also did for 1D projections.
 %			\item Can you identify the plot of the "true" data?
 		  \end{itemize}		
 			
@@ -389,6 +418,7 @@ and XGobi. %\cite{SCB91}.
 		  \begin{itemize}
 			  \item Data simulated from a standard normal with $n=30, p=100$ but 98 dimensions of pure noise and 2 dimensions of real separation -- there is  {\bf true class} separation.
 			\item 19 null plots of 30 generated with the smallest Wilks' $\lambda$ value was used. 
+			\item Also did for 1D projections.
 %			\item Can you identify the plot of the ``true" data?
 		  \end{itemize}		
 			
@@ -438,36 +468,35 @@ and XGobi. %\cite{SCB91}.
 \end{frame}
 
 \begin{frame}
-\frametitle{Distance increasing with $p$ for fixed $n$}
+\frametitle{Distance Increasing with $p$ for Fixed $n$}
 \begin{itemize}
 \item Data simulated from a standard normal with $n=30$. 
 \item Data divided into 2 classes, first 15 class 1, second 15 class 2.
 \item Plot one dimensional projections showing best separation each time. 
-\item Starting from $p=2$ increase the number of dimensions ($p$) and ask observer to say when the classes are actually separated.
-\item Repeat 100 times!
+\item Starting from $p=2$ we increase the number of dimensions ($p$) by 1 each time. %\item Repeat 100 times!
 \end{itemize}
 \begin{center}
-\scalebox{0.18}{\includegraphics{plot_2a_1d.pdf}}
-\scalebox{0.18}{\includegraphics{plot_20a_1d.pdf}}
-\scalebox{0.18}{\includegraphics{plot_50a_1d.pdf}}
-\scalebox{0.18}{\includegraphics{plot_100a_1d.pdf}}
+\scalebox{0.18}{\includegraphics{plot_1d_2.pdf}}
+\scalebox{0.18}{\includegraphics{plot_1d_20.pdf}}
+\scalebox{0.18}{\includegraphics{plot_1d_50.pdf}}
+\scalebox{0.18}{\includegraphics{plot_1d_100.pdf}}
 \end{center}
 \end{frame}
 
 \begin{frame}
-\frametitle{Distance increasing with $p$ for fixed $n$}
+\frametitle{Distance Increasing with $p$ for Fixed $n$}
 \begin{itemize}
 \item Data simulated from a standard normal with $n=30$. 
 \item Data divided into 3 classes, randomly, 10 observations in each class.
 \item Plot two dimensional projections showing best separation each time.
-\item Starting from $p=3$ increase the number of dimensions ($p$), and ask observer to say when the classes are actually separated. 
-\item Repeat 100 times!
+\item Starting from $p=3$ we increase the number of dimensions ($p$)  by 1 each time. %, and ask observer to say when the classes are actually separated. 
+%\item Repeat 100 times!
 \end{itemize}
 \begin{center}
-\scalebox{0.18}{\includegraphics{plot-true3.pdf}}
-\scalebox{0.18}{\includegraphics{plot-true20.pdf}}
-\scalebox{0.18}{\includegraphics{plot-true50.pdf}}
-\scalebox{0.18}{\includegraphics{plot-true100.pdf}}
+\scalebox{0.18}{\includegraphics{plot_2d_3.pdf}}
+\scalebox{0.18}{\includegraphics{plot_2d_20.pdf}}
+\scalebox{0.18}{\includegraphics{plot_2d_50.pdf}}
+\scalebox{0.18}{\includegraphics{plot_2d_100.pdf}}
 \end{center}
 \end{frame}
 
@@ -516,14 +545,15 @@ and XGobi. %\cite{SCB91}.
 
 
 \begin{frame}
-	\frametitle{LDA of the wasp dataset.}
+	\frametitle{LDA of the Paper Wasp Dataset (New Work)}
 	\begin{columns}
 		\begin{column}{0.4\textwidth}
 		  \begin{itemize}
-		  	\item Obtained the wasp data from the authors.
-			  \item Generate a lineup by permuting the group variable.  
+		  	\item Obtained the wasp data from the authors. 
 			  \item Perform PP using a LDA index.
-			\item Plot LD1 vs LD2 of the 40 randomly selected oligos. 
+			\item Plot LD1 vs LD2 of the $p=40$ significantly different oligonucleotides from a total of 447.
+			 \item Generate a lineup by permuting the group variable. 
+ 
 %			\item Can you identify the plot of the ``true" data?
 		  \end{itemize}		
 			
@@ -537,14 +567,14 @@ and XGobi. %\cite{SCB91}.
 \end{frame}
 
 \begin{frame}
-	\frametitle{PDA of the wasp dataset.}
+	\frametitle{PDA of the Paper Wasp Dataset (New Work) }
 	\begin{columns}
 		\begin{column}{0.4\textwidth}
 		  \begin{itemize}
-%		  	\item Obtained the wasp data from the authors.
-			  \item Generate a lineup by permuting the group variable.  
+%		  	\item Obtained the wasp data from the authors. 
 			  \item Perform PP using a PDA index.
-			\item Plot PD1 vs PD2 of the 40 randomly selected oligos. 
+			\item Plot PD1 vs PD2 of the $p=40$ significantly different oligonucleotides from a total of 447.
+			  \item Generate a lineup by permuting the group variable. 
 %			\item Can you identify the plot of the ``true" data?
 		  \end{itemize}		
 			
@@ -602,6 +632,31 @@ and XGobi. %\cite{SCB91}.
 \item This might change your decision about believing or disbelieving the null hypothesis.
 \item To avoid this problem, we develop techniques to determine the quality of a lineup.
 \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Example}
+\begin{itemize}
+\item A typical lineup to test the independence of $X$ and $Y$ (left) and the same lineup with a `bad' random sample of null plots (right).
+\end{itemize}
+\begin{columns}
+		\begin{column}{0.52\textwidth}
+		\begin{figure}
+			 \begin{center} \scalebox{0.4}{\includegraphics{example-waldo-1.pdf}} 
+			% \caption{A typical Lineup.}
+			 \end{center}
+			 \end{figure}
+		\end{column}
+		
+		\begin{column}{0.52\textwidth}
+		\begin{figure}
+			 \begin{center} \scalebox{0.4}{\includegraphics{example-waldo-2.pdf}} 
+			%\caption{Lineup with a `bad' sample of null plots.}
+			 \end{center}
+			 \end{figure}
+		\end{column}
+
+\end{columns}
 \end{frame}
 
 \begin{frame}
@@ -703,7 +758,7 @@ b^2_P(.) &:=& ||C(X,Y) - C(X,[P]Y)||^2 \\ &=& \sum_{i=1}^p \sum_{j=1}^q (C_{X_i,
 \end{frame}
 
 \begin{frame}
-\frametitle{7. Euclidean Distance of Permutations:}
+\frametitle{7. Euclidean Distance of Permutations: (New Work)}
 
 The Euclidean distance of permutations $P$ is 
 \[
@@ -714,7 +769,7 @@ where $i = \{1, 2, ..., n\}$
 \end{frame}
 
 \begin{frame}
-\frametitle{8. Canberra Distance:}
+\frametitle{8. Canberra Distance: (New Work)}
 The canberra distance under permutation is defined as
 %\begin{eqnarray*}
 \[
@@ -728,7 +783,7 @@ c^2_P(.)  = \left \{
 \end{frame}
 
 \begin{frame}
-\frametitle{9. Weighted Canberra Distance: }
+\frametitle{9. Weighted Canberra Distance: (New Work)}
 The weighted canberra distance under permutation is defined as 
 %\begin{eqnarray*}
 \[
@@ -744,7 +799,7 @@ where like the weighted bin distance, $W_{X_i,Y_i}$ denotes the joint (empirical
 \end{frame}
 
 \begin{frame}
-\frametitle{10. Correlation between $Y$ and $[P]Y$:}
+\frametitle{10. Correlation between $Y$ and $[P]Y$: (New Work)}
 \begin{itemize} 
 \item The correlation between the $Y$ and $[P]Y$ is defined as
 \[
@@ -755,7 +810,7 @@ r_P(.) = \frac{ \sum_{i=1}^n (Y_i - \bar{Y_i})(Y_{P(i)} - \bar{Y}_{P(i)})}{\sqrt
 \end{frame}
 
 \begin{frame}
-\frametitle{11. Hausdorff Distance:}
+\frametitle{11. Hausdorff Distance: (New Work)}
 \begin{itemize}
 \item Let $A = \{a_1, a_2, \dots, a_n\}$ and $B = \{b_1, b_2, \dots, b_n\}$ be two finite point sets. 
 \item The Hausdorff distance between A and B is defined as
@@ -775,7 +830,7 @@ h(A, B) &:=& \max_{a \in A} \min_{b \in B} ||a - b|| \\ & = & \max_{a \in A} \mi
 
 
 \begin{frame}
-\frametitle{People's pick}
+\frametitle{People's Pick}
 \begin{itemize}
 \item A human subject's experiment was conducted.
 \item Each participant was shown 5 lineups.
@@ -822,7 +877,7 @@ h(A, B) &:=& \max_{a \in A} \min_{b \in B} ||a - b|| \\ & = & \max_{a \in A} \mi
 \end{frame}
 
 \begin{frame}
-\frametitle{z-score}
+\frametitle{$z$-score}
 	\begin{columns}
 
 	\begin{column}{0.55\textwidth}
@@ -854,7 +909,7 @@ h(A, B) &:=& \max_{a \in A} \min_{b \in B} ||a - b|| \\ & = & \max_{a \in A} \mi
 \end{frame}
 
 \begin{frame}
-\frametitle{Table showing the $z$-scores and percentile values}
+\frametitle{Table Showing the $z$-scores and Percentile Values}
 \begin{table}[hbt]
 	\vspace{-.4in}
 %\caption{Percentile values and $z$ scores of closest distances from the observed data plot in the lineup of Figure~\ref{sca_1}. Rows are ordered according to minimal distance from the observed data plot within each of the distance measures. Plot 20 is close to the observed data plot for all  of the distances.}
@@ -970,6 +1025,30 @@ Actual & 7  & $-19$ & $-8.5$ & $-9.9$ & $-4.1$ & & 0.1 & 0.2 & 93.3\\[1ex]
 \end{frame}
 
 \begin{frame}
+\frametitle{Recent Developments}
+	\begin{columns}
+
+	\begin{column}{0.55\textwidth}
+		\begin{itemize}
+		\item We generate `null datasets' based on 10,000 permutations of $Y$.
+		\item Calculate the distance measures between the actual data and each of these `null datasets'. 
+		\item Select those datasets which are closest to the observed data according to each of  the distance measures.
+		\item Plot the observed data with these sets of null data in a plot-matrix.
+		\item A human judge has to pick which is the closest to the actual plot.
+		\end{itemize}
+	\end{column}
+
+	\begin{column}{0.45\textwidth}
+		 \begin{center}
+  		\scalebox{0.38}{\includegraphics{minimum.pdf}} 
+		 \end{center}
+	\end{column}
+\end{columns}
+\end{frame}
+
+
+
+\begin{frame}
 \frametitle{Future Work}
 \begin{itemize}
 \item Design an experiment to find the distance measure which is closest to the visual distance.
@@ -979,7 +1058,7 @@ Actual & 7  & $-19$ & $-8.5$ & $-9.9$ & $-4.1$ & & 0.1 & 0.2 & 93.3\\[1ex]
 
 
 \begin{frame}
-\frametitle{Plans and timeline}
+\frametitle{Plans and Timeline}
 %\vspace{-1cm}
 \begin{table}[hbtp]
 \small
