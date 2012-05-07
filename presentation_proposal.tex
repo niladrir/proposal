@@ -314,7 +314,8 @@ and XGobi. %\cite{SCB91}.
 \item Projection Pursuit 
 			\begin{itemize}
 			\item Algorithm to find the most interesting low-$d$ projections of $p$-dimensional data,  where $d \le p$.
-			\item Reveals the important details about the structure of multivariate data.
+			\item Optimizes some predetermined criterion function known as projection pursuit index.
+		%	\item Reveals the important details about the structure of multivariate data.
 			\item In this paper we used PDA index (for Large $p$, small $n$) (Lee {\em et. al} (2009) ).
 			\end{itemize}		
 \item \texttt{tourr} package (Wickham \& Cook (2010)) 
@@ -557,8 +558,10 @@ $$I_{PDA}(A, \lambda) = 1 - \frac{|A^T\{(1 - \lambda)W^s + n\lambda I_p\}A|}{|A^
 		  \begin{itemize}
 		  	\item Obtained the wasp data from the authors. 
 			  \item Perform PP using a LDA index.
-			\item Plot LD1 vs LD2 of the $p=40$ significantly different oligonucleotides from a total of 447.
-			 \item Generate a lineup by permuting the group variable. 
+			\item Plot LD1 vs LD2.
+			% of the $p=40$ significantly different oligonucleotides from a total of 447.
+			 \item Generate the null plots by permuting the group variable. 
+			 \item Plot them in a lineup by placing the actual data randomly among the null plots.
  
 %			\item Can you identify the plot of the ``true" data?
 		  \end{itemize}		
@@ -579,8 +582,11 @@ $$I_{PDA}(A, \lambda) = 1 - \frac{|A^T\{(1 - \lambda)W^s + n\lambda I_p\}A|}{|A^
 		  \begin{itemize}
 %		  	\item Obtained the wasp data from the authors. 
 			  \item Perform PP using a PDA index.
-			\item Plot PD1 vs PD2 of the $p=40$ significantly different oligonucleotides from a total of 447.
-			  \item Generate a lineup by permuting the group variable. 
+			\item Plot PD1 vs PD2.
+			% of the $p=40$ significantly different oligonucleotides from a total of 447.
+			  \item Generate the null plots by permuting the group variable. 
+			  \item Plot them in a lineup by placing the actual data randomly among the null plots.
+			\item PDA works better than LDA.
 %			\item Can you identify the plot of the ``true" data?
 		  \end{itemize}		
 			
@@ -610,7 +616,7 @@ $$I_{PDA}(A, \lambda) = 1 - \frac{|A^T\{(1 - \lambda)W^s + n\lambda I_p\}A|}{|A^
 \begin{itemize}
 \item We used the visual inference method to check the projection pursuit optimization. It seems ok - originally we felt we could pick the ``true'' data too often - which would have meant the algorithm had problems with ordering of classes.
 \item We used the projection pursuit to show that there is {\bf fake} separation among the classes for a large number of dimensions of pure noise for a fixed sample size $n$.
-\item We used visual methods to get an estimate the number of dimensions at which the fake classes were well separated in 1D and 2D projections. Next step would be to check these values against what would be expected theoretically.
+%\item We used visual methods to get an estimate the number of dimensions at which the fake classes were well separated in 1D and 2D projections. Next step would be to check these values against what would be expected theoretically.
 \end{itemize}
 \end{frame}
 
@@ -841,7 +847,7 @@ h(A, B) &:=& \max_{a \in A} \min_{b \in B} ||a - b|| \\ & = & \max_{a \in A} \mi
 \item A human subject's experiment was conducted.
 \item Each participant was shown 5 lineups.
 \item 15 participants were asked which plot exhibited the strongest positive association.
-\item Then after revealing the location, they were asked the plot that looked most similar to the observed data plot.
+\item Then after revealing the location, they were asked to identify the plot that looked most similar to the observed data plot.
 \item Most people provided 2-3 closest.
 \item Participants were not requested to order their closeness picks. 
 \item We combined the picks as 
