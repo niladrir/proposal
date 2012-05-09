@@ -6,17 +6,17 @@
 \centerline{\bf\large Glossary of terms for Visual Inference}
 
 \begin{itemize}
-\item $H_0$: null hypothesis, the statement of what we assumed to be true, eg. $X$, $Y$ are independent. \\
-\item $H_a$:  alternative hypothesis, statement against the null hypothesis, eg. $X$, $Y$ are not independent. \\
+\item $H_0$: null hypothesis, the statement of what we assumed to be true about the population, eg. $X$, $Y$ are independent. \\
+\item $H_a$:  alternative hypothesis, statement against the null hypothesis, the statement of what we want to show, eg. $X$, $Y$ are not independent. \\
 \item test statistic:  plot of observed data.  \\
-\item sampling distribution:  distribution of the test statistic, the plot of the observed data. Hence the lineup is the sampling distribution.\\
-\item null distribution: distribution where the null datasets are sampled from.\\
-\item Significance level $\alpha$:  $\alpha \in (0,1)$ is the threshold at which we will reject the null hypothesis, should the $p$-value fall under it, usually $\alpha=0.05$.\\
+\item null plot: plot of data that is generated in a manner consistent with the null hypothesis. Sometimes the distribution that this data is drawn from is considered to be the null distribution. \\
+\item sampling distribution:  distribution of the test statistic, assuming that the null hypothesis is true. When a lineup is used to test the null hypothesis a small, finite number of samples is drawn from the null distribution, and plotted in the same manner as the test statistic. This forms the sampling distribution upon which the test is made. Sometimes this is referred to as the null distribution, but it leads to ambiguous language. \\
+\item significance level $\alpha$:  $\alpha \in (0,1)$, usually $\alpha=0.05$, is the threshold at which we will reject the null hypothesis.This is the rate at which we are willing to be wrong in rejecting the null hypothesis. Because a small finite number of null plots are shown along with the data, the significance level might commonly be decided to be 1/(\# of plots in the lineup). \\
 \item test procedure:  a set of $K$ independent judges evaluates a lineup of size $m$ to come to a conclusion whether to reject $H_0$.\\
-\item $p$-value:  probability that $x$ or more of $K$ observers pick the data plot under $H_0$. \\
-\item power:  probability to reject the null hypothesis when it is false.\\
-\item type I error:  probability to reject the null hypothesis if it is true\\
-\item type II error:  probability to fail to reject the null hypothesis if it is false\\
+\item $p$-value:  The $p$-value is the probability that one or more of the null plots is more recognizable as different than the test statistic. \\
+\item power:  probability to reject the null hypothesis when it is false. \\
+\item type I error:  probability to reject the null hypothesis if it is true. This is typically controlled at the value $\alpha$. This is the probability that the test statistic is chosen, if the null hypothesis is true.\\
+\item type II error:  probability to fail to reject the null hypothesis if it is false. This is the probability that the test statistic is not chosen, even though the null hypothesis is not true.\\
 
 %\item \textbf{Sampling Distribution}: The sampling distribution is the distribution of the sample statistic based on all possible samples of sample size $n$ from the population. So we have a population of size 30 and we take samples of size 5, there are $c^{30}_5$ possible samples from the population. If we calculate the mean of all the samples and draw a histogram, the histogram gives the sampling distribution of the sample mean.
 %\item \textbf{Null Distribution}: The null distribution corresponds to the probability distribution of the test statistic when the null hypothesis is true. So if we want to test for the means, \\
@@ -30,12 +30,12 @@
 %The distribution of the test statistic $t$ when $H_0$ is true is a central $t$ distribution with (n - 1) degrees of freedom. This is the null distribution of the test statistic $t$.
 \end{itemize}
 
-\centerline{\bf\large Some other terms}
-
-\begin{itemize}
-\item projection pursuit: an algorithm to find the most interesting low dimensional projections of a high dimensional data by optimizing a predetermined criterion function called projection pursuit index.
-\item penalized discriminant analysis (PDA) index: a projection pursuit index specifically designed to tackle the large $p$, small $n$ problems, an improvement to LDA index.
-\item wilk's $\Lambda$: is given by $$\Lambda=\frac{|W|}{|W + B|}$$ where $W$ and $B$ are the within-group and between-group sum of squares respectively.
-\end{itemize}
+%\centerline{\bf\large Some other terms}
+%
+%\begin{itemize}
+%\item projection pursuit: an algorithm to find the most interesting low dimensional projections of a high dimensional data by optimizing a predetermined criterion function called projection pursuit index.
+%\item penalized discriminant analysis (PDA) index: a projection pursuit index specifically designed to tackle the large $p$, small $n$ problems, an improvement to LDA index.
+%\item wilk's $\Lambda$: is given by $$\Lambda=\frac{|W|}{|W + B|}$$ where $W$ and $B$ are the within-group and between-group sum of squares respectively.
+%\end{itemize}
 
 \end{document}
